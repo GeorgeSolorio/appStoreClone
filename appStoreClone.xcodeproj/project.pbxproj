@@ -13,6 +13,7 @@
 		C0AC3FB724A83AC40076C27F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0AC3FB524A83AC40076C27F /* Main.storyboard */; };
 		C0AC3FB924A83AC50076C27F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0AC3FB824A83AC50076C27F /* Assets.xcassets */; };
 		C0AC3FBC24A83AC50076C27F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0AC3FBA24A83AC50076C27F /* LaunchScreen.storyboard */; };
+		C0AC3FC424A83B520076C27F /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AC3FC324A83B520076C27F /* BaseTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		C0AC3FB824A83AC50076C27F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0AC3FBB24A83AC50076C27F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C0AC3FBD24A83AC50076C27F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0AC3FC324A83B520076C27F /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				C0AC3FAF24A83AC40076C27F /* AppDelegate.swift */,
+				C0AC3FC324A83B520076C27F /* BaseTabBarController.swift */,
 				C0AC3FB124A83AC40076C27F /* SceneDelegate.swift */,
 				C0AC3FB324A83AC40076C27F /* ViewController.swift */,
 				C0AC3FB524A83AC40076C27F /* Main.storyboard */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0AC3FC424A83B520076C27F /* BaseTabBarController.swift in Sources */,
 				C0AC3FB424A83AC40076C27F /* ViewController.swift in Sources */,
 				C0AC3FB024A83AC40076C27F /* AppDelegate.swift in Sources */,
 				C0AC3FB224A83AC40076C27F /* SceneDelegate.swift in Sources */,
