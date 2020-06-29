@@ -15,13 +15,13 @@ class BaseTabBarController: UITabBarController {
         
         let todayNavController = createNavController(viewController: UIViewController(), title: "Today", imageName: "today_icon")
         let appsNavController = createNavController(viewController: UIViewController(), title: "Apps", imageName: "apps")
-        let searchNavController = createNavController(viewController: appsSearchController(), title: "Search", imageName: "search")
+        let searchNavController = createNavController(viewController: AppsSearchController(), title: "Search", imageName: "search")
         
         
         viewControllers = [
+            searchNavController,
             todayNavController,
             appsNavController,
-            searchNavController,
         ]
     }
     
