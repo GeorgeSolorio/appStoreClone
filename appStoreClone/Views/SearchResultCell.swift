@@ -10,7 +10,7 @@ import UIKit
 
 class SearchResultCell: UICollectionViewCell {
     
-    let imageView: UIImageView = {
+    let appIconImageView: UIImageView = {
         let iv = UIImageView()
         iv.backgroundColor = .red
         iv.widthAnchor.constraint(equalToConstant: 64).isActive = true
@@ -21,21 +21,25 @@ class SearchResultCell: UICollectionViewCell {
     
     let nameLabel: UILabel = {
         let label = UILabel()
+        label.textColor = .black
         label.text = "App Name"
         return label
     }()
     
     let categoryLabel: UILabel = {
         let label = UILabel()
+        label.textColor = .black
         label.text = "Photos & Video"
         return label
     }()
     
     let ratingsLabel: UILabel = {
         let label = UILabel()
+        label.textColor = .black
         label.text = "9.26M"
         return label
     }()
+    
     
     let getButton: UIButton = {
         let button = UIButton(type: .system)
@@ -43,38 +47,51 @@ class SearchResultCell: UICollectionViewCell {
         button.setTitle("GET", for: .normal)
         button.setTitleColor(.blue, for: .normal)
         button.titleLabel?.font = .boldSystemFont(ofSize: 14)
-        button.backgroundColor = .darkGray
-        button.widthAnchor.constraint(greaterThanOrEqualToConstant: 80).isActive = true
+        button.backgroundColor = UIColor(white: 0.95, alpha: 1)
+        button.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 32).isActive = true
+        button.layer.cornerRadius = 16
         return button
     }()
     
+    lazy var screenShotImageView1 = self.createScreenShotImageView()
+    lazy var screenShotImageView2 = self.createScreenShotImageView()
+    lazy var screenShotImageView3 = self.createScreenShotImageView()
+
+    
+    func createScreenShotImageView() -> UIImageView {
+        let imageView = UIImageView()
+        imageView.backgroundColor = .black
+        return imageView
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-                
-        backgroundColor = .yellow
-                
-        let labelStackView = UIStackView(arrangedSubviews: [
+        
+        let labelStackView = VerticalStackView(arrangedSubviews: [
             nameLabel,
             categoryLabel,
             ratingsLabel
         ])
         
-        labelStackView.axis = .vertical
-        
-        let stackView = UIStackView(arrangedSubviews: [
-            imageView, labelStackView, getButton,
+        let infoTopStackView = UIStackView(arrangedSubviews: [
+            appIconImageView, labelStackView, getButton,
         ])
         
-        stackView.spacing = 12
-        stackView.alignment = .center
+        infoTopStackView.spacing = 12
+        infoTopStackView.alignment = .center
         
-        addSubview(stackView)
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        stackView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-
+        let screenShotStackView = UIStackView(arrangedSubviews: [
+            screenShotImageView1, screenShotImageView2, screenShotImageView3
+            ])
+        screenShotStackView.spacing = 12
+        screenShotStackView.distribution = .fillEqually
+        
+        let overallStackView = VerticalStackView(arrangedSubviews: [infoTopStackView, screenShotStackView,], spacing: 16)
+        
+        addSubview(overallStackView)
+        
+        overallStackView.fillSuperView(padding: .init(top: 16, left: 16, bottom: 16, right: 16))
     }
     
     required init?(coder: NSCoder) {

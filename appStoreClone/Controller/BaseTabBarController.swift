@@ -12,12 +12,10 @@ class BaseTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let todayNavController = createNavController(viewController: UIViewController(), title: "Today", imageName: "today_icon")
         let appsNavController = createNavController(viewController: UIViewController(), title: "Apps", imageName: "apps")
         let searchNavController = createNavController(viewController: AppsSearchController(), title: "Search", imageName: "search")
-        
-        
+                
         viewControllers = [
             searchNavController,
             todayNavController,
@@ -29,6 +27,7 @@ class BaseTabBarController: UITabBarController {
         
         viewController.navigationItem.title = title
         viewController.view.backgroundColor = .white
+
         let navController = UINavigationController(rootViewController: viewController)
         navController.tabBarItem.title = title
         navController.tabBarItem.image = UIImage(named: imageName)

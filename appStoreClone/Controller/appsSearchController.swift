@@ -14,7 +14,6 @@ class AppsSearchController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         collectionView.backgroundColor = .white
         collectionView.register(SearchResultCell.self, forCellWithReuseIdentifier: cellID)
     }
@@ -42,6 +41,6 @@ extension AppsSearchController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return .init(width: view.frame.width, height: 250)
+        return .init(width: view.frame.width, height: 350)
     }
 }

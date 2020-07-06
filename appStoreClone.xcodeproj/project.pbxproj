@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C009AAF724B3C73600EB5707 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009AAF624B3C73600EB5707 /* UIView+Layout.swift */; };
+		C009AAF924B3CE9500EB5707 /* VerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009AAF824B3CE9500EB5707 /* VerticalStackView.swift */; };
 		C02129AA24AA426100A22C03 /* AppsSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02129A924AA426100A22C03 /* AppsSearchController.swift */; };
 		C0769E3B24AA6851003900C0 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0769E3A24AA6851003900C0 /* SearchResultCell.swift */; };
 		C0AC3FB024A83AC40076C27F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AC3FAF24A83AC40076C27F /* AppDelegate.swift */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C009AAF624B3C73600EB5707 /* UIView+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
+		C009AAF824B3CE9500EB5707 /* VerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalStackView.swift; sourceTree = "<group>"; };
 		C02129A924AA426100A22C03 /* AppsSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsSearchController.swift; sourceTree = "<group>"; };
 		C0769E3A24AA6851003900C0 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		C0AC3FAC24A83AC40076C27F /* appStoreClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = appStoreClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,6 +47,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C009AAF524B3C72000EB5707 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C009AAF624B3C73600EB5707 /* UIView+Layout.swift */,
+				C009AAF824B3CE9500EB5707 /* VerticalStackView.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		C02129A624AA420500A22C03 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +92,7 @@
 		C0AC3FAE24A83AC40076C27F /* appStoreClone */ = {
 			isa = PBXGroup;
 			children = (
+				C009AAF524B3C72000EB5707 /* Helpers */,
 				C0769E3924AA6832003900C0 /* Views */,
 				C02129A624AA420500A22C03 /* Controller */,
 				C0AC3FAF24A83AC40076C27F /* AppDelegate.swift */,
@@ -163,10 +177,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C009AAF724B3C73600EB5707 /* UIView+Layout.swift in Sources */,
 				C0AC3FC424A83B520076C27F /* BaseTabBarController.swift in Sources */,
 				C02129AA24AA426100A22C03 /* AppsSearchController.swift in Sources */,
 				C0AC3FB424A83AC40076C27F /* ViewController.swift in Sources */,
 				C0AC3FB024A83AC40076C27F /* AppDelegate.swift in Sources */,
+				C009AAF924B3CE9500EB5707 /* VerticalStackView.swift in Sources */,
 				C0769E3B24AA6851003900C0 /* SearchResultCell.swift in Sources */,
 				C0AC3FB224A83AC40076C27F /* SceneDelegate.swift in Sources */,
 			);
