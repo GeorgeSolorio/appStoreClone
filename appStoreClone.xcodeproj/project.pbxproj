@@ -11,6 +11,7 @@
 		C009AAF724B3C73600EB5707 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009AAF624B3C73600EB5707 /* UIView+Layout.swift */; };
 		C009AAF924B3CE9500EB5707 /* VerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009AAF824B3CE9500EB5707 /* VerticalStackView.swift */; };
 		C009AAFC24B3F8F800EB5707 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009AAFB24B3F8F800EB5707 /* SearchResult.swift */; };
+		C011DA5824B54652002EE481 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C011DA5724B54652002EE481 /* AppGroup.swift */; };
 		C015C37A24B50718006D3FE4 /* AppsPageHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C015C37924B50718006D3FE4 /* AppsPageHeader.swift */; };
 		C015C37C24B50869006D3FE4 /* AppsHeaderHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C015C37B24B50869006D3FE4 /* AppsHeaderHorizontalController.swift */; };
 		C02129AA24AA426100A22C03 /* AppsSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02129A924AA426100A22C03 /* AppsSearchController.swift */; };
@@ -39,6 +40,7 @@
 		C009AAF624B3C73600EB5707 /* UIView+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 		C009AAF824B3CE9500EB5707 /* VerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalStackView.swift; sourceTree = "<group>"; };
 		C009AAFB24B3F8F800EB5707 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		C011DA5724B54652002EE481 /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
 		C015C37924B50718006D3FE4 /* AppsPageHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsPageHeader.swift; sourceTree = "<group>"; };
 		C015C37B24B50869006D3FE4 /* AppsHeaderHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHeaderHorizontalController.swift; sourceTree = "<group>"; };
 		C02129A924AA426100A22C03 /* AppsSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsSearchController.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				C009AAFB24B3F8F800EB5707 /* SearchResult.swift */,
+				C011DA5724B54652002EE481 /* AppGroup.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				C0769E3B24AA6851003900C0 /* SearchResultCell.swift in Sources */,
 				C0967B8524B4E9DC00CE268E /* BaseListController.swift in Sources */,
 				C0E408C524B4FC51008E02AA /* Extension.swift in Sources */,
+				C011DA5824B54652002EE481 /* AppGroup.swift in Sources */,
 				C0F5B6F424B50D1E00830FFF /* AppHeaderCell.swift in Sources */,
 				C0AC3FB224A83AC40076C27F /* SceneDelegate.swift in Sources */,
 				C0E408C124B4EE4B008E02AA /* AppsHorizontalController.swift in Sources */,
