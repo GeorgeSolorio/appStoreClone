@@ -41,7 +41,6 @@ class AppsHorizontalController: BaseListController {
         cell.imageView.sd_setImage(with: URL(string: app?.artworkUrl100 ?? ""))
         return cell
     }
-    
 }
 
 extension AppsHorizontalController: UICollectionViewDelegateFlowLayout {

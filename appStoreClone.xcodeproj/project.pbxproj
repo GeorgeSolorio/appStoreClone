@@ -135,9 +135,9 @@
 		C0967B8124B4E8FD00CE268E /* Apps */ = {
 			isa = PBXGroup;
 			children = (
+				C015C37B24B50869006D3FE4 /* AppsHeaderHorizontalController.swift */,
 				C0E408C024B4EE4B008E02AA /* AppsHorizontalController.swift */,
 				C0967B8224B4E90800CE268E /* AppsPageController.swift */,
-				C015C37B24B50869006D3FE4 /* AppsHeaderHorizontalController.swift */,
 			);
 			path = Apps;
 			sourceTree = "<group>";
@@ -179,18 +179,18 @@
 		C0AC3FAE24A83AC40076C27F /* appStoreClone */ = {
 			isa = PBXGroup;
 			children = (
-				C09A19DA24B3FDFB00D52852 /* Service */,
-				C009AAFA24B3F8D000EB5707 /* Model */,
-				C009AAF524B3C72000EB5707 /* Helpers */,
-				C0769E3924AA6832003900C0 /* Views */,
-				C02129A624AA420500A22C03 /* Controller */,
 				C0AC3FAF24A83AC40076C27F /* AppDelegate.swift */,
-				C0AC3FB124A83AC40076C27F /* SceneDelegate.swift */,
-				C0AC3FB324A83AC40076C27F /* ViewController.swift */,
-				C0AC3FB524A83AC40076C27F /* Main.storyboard */,
 				C0AC3FB824A83AC50076C27F /* Assets.xcassets */,
-				C0AC3FBA24A83AC50076C27F /* LaunchScreen.storyboard */,
+				C02129A624AA420500A22C03 /* Controller */,
+				C009AAF524B3C72000EB5707 /* Helpers */,
 				C0AC3FBD24A83AC50076C27F /* Info.plist */,
+				C0AC3FBA24A83AC50076C27F /* LaunchScreen.storyboard */,
+				C0AC3FB524A83AC40076C27F /* Main.storyboard */,
+				C009AAFA24B3F8D000EB5707 /* Model */,
+				C0AC3FB124A83AC40076C27F /* SceneDelegate.swift */,
+				C09A19DA24B3FDFB00D52852 /* Service */,
+				C0AC3FB324A83AC40076C27F /* ViewController.swift */,
+				C0769E3924AA6832003900C0 /* Views */,
 			);
 			path = appStoreClone;
 			sourceTree = "<group>";
