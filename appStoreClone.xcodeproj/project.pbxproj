@@ -17,6 +17,8 @@
 		C02129AA24AA426100A22C03 /* AppsSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02129A924AA426100A22C03 /* AppsSearchController.swift */; };
 		C071472924B800130023742B /* SocialApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C071472824B800130023742B /* SocialApp.swift */; };
 		C071472B24B80F380023742B /* HorizontalSnappingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C071472A24B80F380023742B /* HorizontalSnappingController.swift */; };
+		C071472E24B8212D0023742B /* AppDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C071472D24B8212D0023742B /* AppDetailController.swift */; };
+		C071473124B825E40023742B /* AppDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C071473024B825E40023742B /* AppDetailCell.swift */; };
 		C0769E3B24AA6851003900C0 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0769E3A24AA6851003900C0 /* SearchResultCell.swift */; };
 		C0967B8324B4E90800CE268E /* AppsPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0967B8224B4E90800CE268E /* AppsPageController.swift */; };
 		C0967B8524B4E9DC00CE268E /* BaseListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0967B8424B4E9DC00CE268E /* BaseListController.swift */; };
@@ -48,6 +50,8 @@
 		C02129A924AA426100A22C03 /* AppsSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsSearchController.swift; sourceTree = "<group>"; };
 		C071472824B800130023742B /* SocialApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialApp.swift; sourceTree = "<group>"; };
 		C071472A24B80F380023742B /* HorizontalSnappingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSnappingController.swift; sourceTree = "<group>"; };
+		C071472D24B8212D0023742B /* AppDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailController.swift; sourceTree = "<group>"; };
+		C071473024B825E40023742B /* AppDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailCell.swift; sourceTree = "<group>"; };
 		C0769E3A24AA6851003900C0 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		C0967B8224B4E90800CE268E /* AppsPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsPageController.swift; sourceTree = "<group>"; };
 		C0967B8424B4E9DC00CE268E /* BaseListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListController.swift; sourceTree = "<group>"; };
@@ -129,6 +133,22 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		C071472C24B821200023742B /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				C071472D24B8212D0023742B /* AppDetailController.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		C071472F24B825D80023742B /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				C071473024B825E40023742B /* AppDetailCell.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		C0769E3924AA6832003900C0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +161,7 @@
 		C0967B8124B4E8FD00CE268E /* Apps */ = {
 			isa = PBXGroup;
 			children = (
+				C071472C24B821200023742B /* Details */,
 				C015C37B24B50869006D3FE4 /* AppsHeaderHorizontalController.swift */,
 				C0E408C024B4EE4B008E02AA /* AppsHorizontalController.swift */,
 				C0967B8224B4E90800CE268E /* AppsPageController.swift */,
@@ -204,6 +225,7 @@
 		C0E408BD24B4EB94008E02AA /* Apps */ = {
 			isa = PBXGroup;
 			children = (
+				C071472F24B825D80023742B /* Detail */,
 				C0E408BE24B4EBA5008E02AA /* AppsGroupCell.swift */,
 				C0E408C224B4FB97008E02AA /* AppRowCell.swift */,
 				C015C37924B50718006D3FE4 /* AppsPageHeader.swift */,
@@ -341,10 +363,12 @@
 				C009AAF924B3CE9500EB5707 /* VerticalStackView.swift in Sources */,
 				C015C37C24B50869006D3FE4 /* AppsHeaderHorizontalController.swift in Sources */,
 				C015C37A24B50718006D3FE4 /* AppsPageHeader.swift in Sources */,
+				C071473124B825E40023742B /* AppDetailCell.swift in Sources */,
 				C0769E3B24AA6851003900C0 /* SearchResultCell.swift in Sources */,
 				C0967B8524B4E9DC00CE268E /* BaseListController.swift in Sources */,
 				C0E408C524B4FC51008E02AA /* Extension.swift in Sources */,
 				C011DA5824B54652002EE481 /* AppGroup.swift in Sources */,
+				C071472E24B8212D0023742B /* AppDetailController.swift in Sources */,
 				C0F5B6F424B50D1E00830FFF /* AppHeaderCell.swift in Sources */,
 				C0AC3FB224A83AC40076C27F /* SceneDelegate.swift in Sources */,
 				C0E408C124B4EE4B008E02AA /* AppsHorizontalController.swift in Sources */,
