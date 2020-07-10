@@ -8,7 +8,6 @@
 
 import UIKit
 
-// A conveniant class that will provide the initializers to any inhereted object
 class BaseListController: UICollectionViewController {
     
     init() {
