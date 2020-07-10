@@ -15,7 +15,6 @@ class AppsSearchController: BaseListController {
     var timer: Timer?
     
     fileprivate let cellID = "id1234"
-    
     fileprivate let searchController = UISearchController(searchResultsController: nil)
     
     fileprivate let enterSearchTermLabel: UILabel = {
@@ -59,7 +58,8 @@ class AppsSearchController: BaseListController {
                 return
             }
             
-            self.appResults = results
+            self.appResults = results?.results ?? []
+            
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
@@ -99,7 +99,8 @@ extension AppsSearchController: UISearchBarDelegate {
             
             // This will fire my search
             Service.shared.fetchApps(searchTerm: searchText) { (results, error) in
-                self.appResults = results
+                
+                self.appResults = results?.results ?? []
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
                 }
