@@ -22,12 +22,15 @@
 		C0769E3B24AA6851003900C0 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0769E3A24AA6851003900C0 /* SearchResultCell.swift */; };
 		C08E622F24BA723A0072967D /* PreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E622E24BA723A0072967D /* PreviewCell.swift */; };
 		C08E623124BA73A10072967D /* PreviewScreenshotController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E623024BA73A10072967D /* PreviewScreenshotController.swift */; };
+		C08E623524BA7C910072967D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E623424BA7C910072967D /* ViewController.swift */; };
+		C08E623924BA7DD70072967D /* ReviewRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E623824BA7DD70072967D /* ReviewRowCell.swift */; };
+		C08E623B24BA800E0072967D /* ReviewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E623A24BA800E0072967D /* ReviewsController.swift */; };
+		C08E623D24BA81690072967D /* ReviewInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E623C24BA81690072967D /* ReviewInfoCell.swift */; };
 		C0967B8324B4E90800CE268E /* AppsPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0967B8224B4E90800CE268E /* AppsPageController.swift */; };
 		C0967B8524B4E9DC00CE268E /* BaseListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0967B8424B4E9DC00CE268E /* BaseListController.swift */; };
 		C09A19DC24B3FE0B00D52852 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09A19DB24B3FE0B00D52852 /* APIService.swift */; };
 		C0AC3FB024A83AC40076C27F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AC3FAF24A83AC40076C27F /* AppDelegate.swift */; };
 		C0AC3FB224A83AC40076C27F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AC3FB124A83AC40076C27F /* SceneDelegate.swift */; };
-		C0AC3FB424A83AC40076C27F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AC3FB324A83AC40076C27F /* ViewController.swift */; };
 		C0AC3FB724A83AC40076C27F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0AC3FB524A83AC40076C27F /* Main.storyboard */; };
 		C0AC3FB924A83AC50076C27F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0AC3FB824A83AC50076C27F /* Assets.xcassets */; };
 		C0AC3FBC24A83AC50076C27F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0AC3FBA24A83AC50076C27F /* LaunchScreen.storyboard */; };
@@ -57,13 +60,16 @@
 		C0769E3A24AA6851003900C0 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		C08E622E24BA723A0072967D /* PreviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCell.swift; sourceTree = "<group>"; };
 		C08E623024BA73A10072967D /* PreviewScreenshotController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewScreenshotController.swift; sourceTree = "<group>"; };
+		C08E623424BA7C910072967D /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C08E623824BA7DD70072967D /* ReviewRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewRowCell.swift; sourceTree = "<group>"; };
+		C08E623A24BA800E0072967D /* ReviewsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsController.swift; sourceTree = "<group>"; };
+		C08E623C24BA81690072967D /* ReviewInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewInfoCell.swift; sourceTree = "<group>"; };
 		C0967B8224B4E90800CE268E /* AppsPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsPageController.swift; sourceTree = "<group>"; };
 		C0967B8424B4E9DC00CE268E /* BaseListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListController.swift; sourceTree = "<group>"; };
 		C09A19DB24B3FE0B00D52852 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		C0AC3FAC24A83AC40076C27F /* appStoreClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = appStoreClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0AC3FAF24A83AC40076C27F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0AC3FB124A83AC40076C27F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C0AC3FB324A83AC40076C27F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C0AC3FB624A83AC40076C27F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C0AC3FB824A83AC50076C27F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0AC3FBB24A83AC50076C27F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -133,6 +139,7 @@
 				C0AC3FC324A83B520076C27F /* BaseTabBarController.swift */,
 				C0967B8424B4E9DC00CE268E /* BaseListController.swift */,
 				C071472A24B80F380023742B /* HorizontalSnappingController.swift */,
+				C08E623424BA7C910072967D /* ViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -142,6 +149,7 @@
 			children = (
 				C071472D24B8212D0023742B /* AppDetailController.swift */,
 				C08E623024BA73A10072967D /* PreviewScreenshotController.swift */,
+				C08E623A24BA800E0072967D /* ReviewsController.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -151,6 +159,8 @@
 			children = (
 				C071473024B825E40023742B /* AppDetailCell.swift */,
 				C08E622E24BA723A0072967D /* PreviewCell.swift */,
+				C08E623824BA7DD70072967D /* ReviewRowCell.swift */,
+				C08E623C24BA81690072967D /* ReviewInfoCell.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -158,10 +168,38 @@
 		C0769E3924AA6832003900C0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C08E623324BA7C340072967D /* Storyboards */,
 				C0E408BD24B4EB94008E02AA /* Apps */,
 				C0769E3A24AA6851003900C0 /* SearchResultCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		C08E623224BA7C140072967D /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				C0AC3FAF24A83AC40076C27F /* AppDelegate.swift */,
+				C0AC3FB124A83AC40076C27F /* SceneDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		C08E623324BA7C340072967D /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				C0AC3FB524A83AC40076C27F /* Main.storyboard */,
+				C0AC3FBA24A83AC50076C27F /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		C08E623624BA7CA10072967D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C0AC3FB824A83AC50076C27F /* Assets.xcassets */,
+				C0AC3FBD24A83AC50076C27F /* Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		C0967B8124B4E8FD00CE268E /* Apps */ = {
@@ -212,17 +250,12 @@
 		C0AC3FAE24A83AC40076C27F /* appStoreClone */ = {
 			isa = PBXGroup;
 			children = (
-				C0AC3FAF24A83AC40076C27F /* AppDelegate.swift */,
-				C0AC3FB824A83AC50076C27F /* Assets.xcassets */,
+				C08E623624BA7CA10072967D /* Resources */,
+				C08E623224BA7C140072967D /* Delegate */,
 				C02129A624AA420500A22C03 /* Controller */,
 				C009AAF524B3C72000EB5707 /* Helpers */,
-				C0AC3FBD24A83AC50076C27F /* Info.plist */,
-				C0AC3FBA24A83AC50076C27F /* LaunchScreen.storyboard */,
-				C0AC3FB524A83AC40076C27F /* Main.storyboard */,
 				C009AAFA24B3F8D000EB5707 /* Model */,
-				C0AC3FB124A83AC40076C27F /* SceneDelegate.swift */,
 				C09A19DA24B3FDFB00D52852 /* Service */,
-				C0AC3FB324A83AC40076C27F /* ViewController.swift */,
 				C0769E3924AA6832003900C0 /* Views */,
 			);
 			path = appStoreClone;
@@ -357,13 +390,15 @@
 			files = (
 				C009AAF724B3C73600EB5707 /* UIView+Layout.swift in Sources */,
 				C071472924B800130023742B /* SocialApp.swift in Sources */,
+				C08E623D24BA81690072967D /* ReviewInfoCell.swift in Sources */,
 				C0967B8324B4E90800CE268E /* AppsPageController.swift in Sources */,
 				C009AAFC24B3F8F800EB5707 /* SearchResult.swift in Sources */,
+				C08E623924BA7DD70072967D /* ReviewRowCell.swift in Sources */,
 				C0AC3FC424A83B520076C27F /* BaseTabBarController.swift in Sources */,
 				C02129AA24AA426100A22C03 /* AppsSearchController.swift in Sources */,
-				C0AC3FB424A83AC40076C27F /* ViewController.swift in Sources */,
 				C0E408BF24B4EBA5008E02AA /* AppsGroupCell.swift in Sources */,
 				C0AC3FB024A83AC40076C27F /* AppDelegate.swift in Sources */,
+				C08E623524BA7C910072967D /* ViewController.swift in Sources */,
 				C071472B24B80F380023742B /* HorizontalSnappingController.swift in Sources */,
 				C09A19DC24B3FE0B00D52852 /* APIService.swift in Sources */,
 				C009AAF924B3CE9500EB5707 /* VerticalStackView.swift in Sources */,
@@ -373,6 +408,7 @@
 				C0769E3B24AA6851003900C0 /* SearchResultCell.swift in Sources */,
 				C08E623124BA73A10072967D /* PreviewScreenshotController.swift in Sources */,
 				C08E622F24BA723A0072967D /* PreviewCell.swift in Sources */,
+				C08E623B24BA800E0072967D /* ReviewsController.swift in Sources */,
 				C0967B8524B4E9DC00CE268E /* BaseListController.swift in Sources */,
 				C0E408C524B4FC51008E02AA /* Extension.swift in Sources */,
 				C011DA5824B54652002EE481 /* AppGroup.swift in Sources */,
@@ -527,7 +563,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2XZ3RGN8AK;
-				INFOPLIST_FILE = appStoreClone/Info.plist;
+				INFOPLIST_FILE = appStoreClone/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -546,7 +582,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2XZ3RGN8AK;
-				INFOPLIST_FILE = appStoreClone/Info.plist;
+				INFOPLIST_FILE = appStoreClone/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
