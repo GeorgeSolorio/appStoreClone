@@ -78,6 +78,13 @@ class AppsSearchController: BaseListController {
 
         return cell
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let appId = String(appResults[indexPath.item].trackId)
+        let appDetailController = AppDetailController(appId: appId)
+        navigationController?.pushViewController(appDetailController, animated: true)
+    }
 }
 
 extension AppsSearchController: UICollectionViewDelegateFlowLayout {
@@ -91,7 +98,6 @@ extension AppsSearchController: UICollectionViewDelegateFlowLayout {
 extension AppsSearchController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
         
         timer?.invalidate()
         
@@ -99,6 +105,11 @@ extension AppsSearchController: UISearchBarDelegate {
             
             // This will fire my search
             Service.shared.fetchApps(searchTerm: searchText) { (results, error) in
+                
+                if let error = error {
+                    print("Failed to fetch apps:", error)
+                    return
+                }
                 
                 self.appResults = results?.results ?? []
                 DispatchQueue.main.async {

@@ -16,36 +16,18 @@ class AppDetailController: BaseListController {
     var app: Result?
     var reviews: Reviews?
     
-    var appId: String! {
-        didSet {
-            let urlString = "https://itunes.apple.com/lookup?id=\(appId ?? "")"
-            Service.shared.fetchGenericJSONData(urlString: urlString) { (result: SearchResult?, error) in
-                
-                let app = result?.results.first
-                self.app = app
-                
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
-                }
-            }
-            
-            let reviewsUrl = "https://itunes.apple.com/rss/customerreviews/page=1/id=\(appId ?? "")/sortby=mostrecent/json?l=en&cc=us"
-            
-            Service.shared.fetchGenericJSONData(urlString: reviewsUrl) { (reviews: Reviews?, error) in
-                
-                if let error = error {
-                    print("Failed to decode reviews", error)
-                    return
-                }
-                self.reviews = reviews
-                reviews?.feed.entry.forEach { print($0.rating.label) }
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
-                }
-            }
-        }
+    fileprivate let appId: String
+    
+    // dependency injection constructor
+    init(appId: String) {
+        self.appId = appId
+        super.init()
     }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.backgroundColor = .white
@@ -53,6 +35,35 @@ class AppDetailController: BaseListController {
         collectionView.register(AppDetailCell.self, forCellWithReuseIdentifier: detailCellId)
         collectionView.register(PreviewCell.self, forCellWithReuseIdentifier: previewCellId)
         collectionView.register(ReviewRowCell.self, forCellWithReuseIdentifier: reviewCellId)
+        fetchData()
+    }
+    
+    fileprivate func fetchData() {
+        
+        let urlString = "https://itunes.apple.com/lookup?id=\(appId)"
+        Service.shared.fetchGenericJSONData(urlString: urlString) { (result: SearchResult?, error) in
+            
+            let app = result?.results.first
+            self.app = app
+            
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+        
+        let reviewsUrl = "https://itunes.apple.com/rss/customerreviews/page=1/id=\(appId)/sortby=mostrecent/json?l=en&cc=us"
+        Service.shared.fetchGenericJSONData(urlString: reviewsUrl) { (reviews: Reviews?, error) in
+            
+            if let error = error {
+                print("Failed to decode reviews", error)
+                return
+            }
+            self.reviews = reviews
+            reviews?.feed.entry.forEach { print($0.rating.label) }
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
