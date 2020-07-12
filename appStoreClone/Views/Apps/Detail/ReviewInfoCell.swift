@@ -12,8 +12,22 @@ class ReviewInfoCell: UICollectionViewCell {
     
     let titleLabel = UILabel(text: "Review title", font: .boldSystemFont(ofSize: 18))
     let authorLabel = UILabel(text: "Author", font: .systemFont(ofSize: 16))
-    let startsLabel = UILabel(text: "Stars", font: .systemFont(ofSize: 16))
-    let bodyLabel = UILabel(text: "Review body\nReview body\nReview body\n", font: .systemFont(ofSize: 14), numberOfLines: 0)
+    let bodyLabel = UILabel(text: "Review body\nReview body\nReview body\n", font: .systemFont(ofSize: 16), numberOfLines: 5)
+    
+    let startStackView: UIStackView = {
+        
+        var arrangedSubViews = [UIView]()
+        (0..<5).forEach { (_) in
+            let imageView = UIImageView(image: #imageLiteral(resourceName: "star"))
+            imageView.constraintWidth(constant: 24)
+            imageView.constraintHeight(constant: 24)
+            arrangedSubViews.append(imageView)
+        }
+        
+        arrangedSubViews.append(UIView())
+        let stackView = UIStackView(arrangedSubviews: arrangedSubViews)
+        return stackView
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,13 +39,14 @@ class ReviewInfoCell: UICollectionViewCell {
         
         let stackView = VerticalStackView(arrangedSubviews: [
             UIStackView(arrangedSubviews: [titleLabel, authorLabel], customSpacing: 8),
-            startsLabel,
+            startStackView,
             bodyLabel,
         ], spacing: 12)
         authorLabel.textAlignment = .right
         titleLabel.setContentCompressionResistancePriority(.init(0), for: .horizontal)
         addSubview(stackView)
-        stackView.fillSuperView(padding: .init(top: 20, left: 20, bottom: 20, right: 20))
+//        stackView.fillSuperView(padding: .init(top: 20, left: 20, bottom: 20, right: 20))
+        stackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 20, left: 20, bottom: 0, right: 20))
     }
     
     required init?(coder: NSCoder) {
