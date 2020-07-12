@@ -10,7 +10,7 @@ import UIKit
 
 class ReviewInfoCell: UICollectionViewCell {
     
-    let title = UILabel(text: "Review title", font: .boldSystemFont(ofSize: 18))
+    let titleLabel = UILabel(text: "Review title", font: .boldSystemFont(ofSize: 18))
     let authorLabel = UILabel(text: "Author", font: .systemFont(ofSize: 16))
     let startsLabel = UILabel(text: "Stars", font: .systemFont(ofSize: 16))
     let bodyLabel = UILabel(text: "Review body\nReview body\nReview body\n", font: .systemFont(ofSize: 14), numberOfLines: 0)
@@ -24,11 +24,12 @@ class ReviewInfoCell: UICollectionViewCell {
         clipsToBounds = true
         
         let stackView = VerticalStackView(arrangedSubviews: [
-            UIStackView(arrangedSubviews: [title, UIView(), authorLabel]),
+            UIStackView(arrangedSubviews: [titleLabel, authorLabel], customSpacing: 8),
             startsLabel,
             bodyLabel,
         ], spacing: 12)
-        
+        authorLabel.textAlignment = .right
+        titleLabel.setContentCompressionResistancePriority(.init(0), for: .horizontal)
         addSubview(stackView)
         stackView.fillSuperView(padding: .init(top: 20, left: 20, bottom: 20, right: 20))
     }

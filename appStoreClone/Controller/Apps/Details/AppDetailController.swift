@@ -14,6 +14,7 @@ class AppDetailController: BaseListController {
     let previewCellId = "previewCellId"
     let reviewCellId = "reviewCellId"
     var app: Result?
+    var reviews: Reviews?
     
     var appId: String! {
         didSet {
@@ -26,6 +27,17 @@ class AppDetailController: BaseListController {
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
                 }
+            }
+            
+            let reviewsUrl = "https://itunes.apple.com/rss/customerreviews/page=1/id=\(appId ?? "")/sortby=mostrecent/json?l=en&cc=us"
+            
+            Service.shared.fetchGenericJSONData(urlString: reviewsUrl) { (reviews: Reviews?, error) in
+                
+                if let error = error {
+                    print("Failed to decode reviews", error)
+                    return
+                }
+                self.reviews = reviews
             }
         }
     }
@@ -57,7 +69,7 @@ class AppDetailController: BaseListController {
         } else {
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reviewCellId, for: indexPath) as! ReviewRowCell
-            
+            cell.reviewController.reviews = reviews
             return cell
         }
     }

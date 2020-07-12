@@ -26,6 +26,7 @@
 		C08E623924BA7DD70072967D /* ReviewRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E623824BA7DD70072967D /* ReviewRowCell.swift */; };
 		C08E623B24BA800E0072967D /* ReviewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E623A24BA800E0072967D /* ReviewsController.swift */; };
 		C08E623D24BA81690072967D /* ReviewInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E623C24BA81690072967D /* ReviewInfoCell.swift */; };
+		C08E623F24BA89E50072967D /* CustomerReviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E623E24BA89E50072967D /* CustomerReviews.swift */; };
 		C0967B8324B4E90800CE268E /* AppsPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0967B8224B4E90800CE268E /* AppsPageController.swift */; };
 		C0967B8524B4E9DC00CE268E /* BaseListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0967B8424B4E9DC00CE268E /* BaseListController.swift */; };
 		C09A19DC24B3FE0B00D52852 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09A19DB24B3FE0B00D52852 /* APIService.swift */; };
@@ -64,6 +65,7 @@
 		C08E623824BA7DD70072967D /* ReviewRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewRowCell.swift; sourceTree = "<group>"; };
 		C08E623A24BA800E0072967D /* ReviewsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsController.swift; sourceTree = "<group>"; };
 		C08E623C24BA81690072967D /* ReviewInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewInfoCell.swift; sourceTree = "<group>"; };
+		C08E623E24BA89E50072967D /* CustomerReviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerReviews.swift; sourceTree = "<group>"; };
 		C0967B8224B4E90800CE268E /* AppsPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsPageController.swift; sourceTree = "<group>"; };
 		C0967B8424B4E9DC00CE268E /* BaseListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListController.swift; sourceTree = "<group>"; };
 		C09A19DB24B3FE0B00D52852 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				C009AAFB24B3F8F800EB5707 /* SearchResult.swift */,
 				C011DA5724B54652002EE481 /* AppGroup.swift */,
 				C071472824B800130023742B /* SocialApp.swift */,
+				C08E623E24BA89E50072967D /* CustomerReviews.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				C0AC3FB224A83AC40076C27F /* SceneDelegate.swift in Sources */,
 				C0E408C124B4EE4B008E02AA /* AppsHorizontalController.swift in Sources */,
 				C0E408C324B4FB97008E02AA /* AppRowCell.swift in Sources */,
+				C08E623F24BA89E50072967D /* CustomerReviews.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
