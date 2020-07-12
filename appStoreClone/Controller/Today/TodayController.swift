@@ -11,6 +11,7 @@ import UIKit
 class TodayController: BaseListController {
     
     fileprivate let cellId = "cellId"
+    var startingFrame: CGRect?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,32 @@ class TodayController: BaseListController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        let redView = UIView()
+        redView.backgroundColor = .red
+        view.addSubview(redView)
+        redView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(removeRedView)))
+        
+        redView.layer.cornerRadius = 16
+
+        guard let cell = collectionView.cellForItem(at: indexPath) else { return }
+        
+        guard let startingFrame = cell.superview?.convert(cell.frame, to: nil) else { return }
+
+        redView.frame = startingFrame
+        
+        self.startingFrame = startingFrame
+        
+        UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseInOut, animations: {
+            redView.frame = self.view.frame
+        }, completion: nil)
+    }
+    
+    @objc func removeRedView(gesture: UITapGestureRecognizer) {
+        UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseInOut, animations: {
+            gesture.view?.frame = self.startingFrame ?? .zero
+        }, completion: { _ in
+            gesture.view?.removeFromSuperview()
+        })
     }
 }
 
