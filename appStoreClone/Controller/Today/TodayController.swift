@@ -39,11 +39,13 @@ class TodayController: BaseListController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let todayAppFullScreenController = TodayFullScreenController()
+        todayAppFullScreenController.dismissHandler = {
+            self.handleRemoveView()
+        }
         
-        let redView = todayAppFullScreenController.view!
-        view.addSubview(redView)
+        let fullScreenView = todayAppFullScreenController.view!
+        view.addSubview(fullScreenView)
         addChild(todayAppFullScreenController)
-        redView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleRemoveView)))
         self.todayAppFullScreenController = todayAppFullScreenController
         
         guard let cell = collectionView.cellForItem(at: indexPath) else { return }
@@ -52,19 +54,19 @@ class TodayController: BaseListController {
         self.startingFrame = startingFrame
         
         //redView.frame = startingFrame
-        
         // Auto layout constraint animations
-        redView.translatesAutoresizingMaskIntoConstraints = false
-        topConstraint = redView.topAnchor.constraint(equalTo: view.topAnchor, constant: startingFrame.origin.y)
-        leadingConstraint = redView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: startingFrame.origin.x)
-        widthConstraint = redView.widthAnchor.constraint(equalToConstant: startingFrame.width)
-        heightConstraint = redView.heightAnchor.constraint(equalToConstant: startingFrame.height)
+        fullScreenView.translatesAutoresizingMaskIntoConstraints = false
+        topConstraint = fullScreenView.topAnchor.constraint(equalTo: view.topAnchor, constant: startingFrame.origin.y)
+        leadingConstraint = fullScreenView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: startingFrame.origin.x)
+        widthConstraint = fullScreenView.widthAnchor.constraint(equalToConstant: startingFrame.width)
+        heightConstraint = fullScreenView.heightAnchor.constraint(equalToConstant: startingFrame.height)
         
         
         [topConstraint, leadingConstraint, widthConstraint, heightConstraint].forEach({ $0?.isActive = true })
+        
         self.view.layoutIfNeeded()
         
-        redView.layer.cornerRadius = 16
+        fullScreenView.layer.cornerRadius = 16
         
         UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseInOut, animations: {
 
@@ -80,25 +82,25 @@ class TodayController: BaseListController {
         }, completion: nil)
     }
     
-    @objc func handleRemoveView(gesture: UITapGestureRecognizer) {
+    func handleRemoveView() {
         
         UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseInOut, animations: {
             
             guard let startingFrame = self.startingFrame else { return }
             
-            self.todayAppFullScreenController.tableView.contentOffset = .zero
-            
+            self.todayAppFullScreenController.tableView.scrollsToTop = true
             self.topConstraint?.constant = startingFrame.origin.y
             self.leadingConstraint?.constant = startingFrame.origin.x
             self.widthConstraint?.constant = startingFrame.width
             self.heightConstraint?.constant = startingFrame.height
             
-            gesture.view?.frame = self.startingFrame ?? .zero
+            self.view.layoutIfNeeded()
+
             if let tabBarFrame = self.tabBarController?.tabBar.frame {
                 self.tabBarController?.tabBar.frame.origin.y = self.view.frame.height - tabBarFrame.height
             }
         }, completion: { _ in
-            gesture.view?.removeFromSuperview()
+            self.todayAppFullScreenController.view.removeFromSuperview()
             self.todayAppFullScreenController.removeFromParent()
         })
     }
