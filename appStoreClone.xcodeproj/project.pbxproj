@@ -19,6 +19,8 @@
 		C02CA8E124BD2BFD00356275 /* TodayAppFullScreenDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02CA8E024BD2BFD00356275 /* TodayAppFullScreenDescriptionCell.swift */; };
 		C031AC1724C105B40054F79E /* TodayMultipleAppsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C031AC1624C105B40054F79E /* TodayMultipleAppsCell.swift */; };
 		C031AC1924C10D960054F79E /* BaseTodayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C031AC1824C10D960054F79E /* BaseTodayCell.swift */; };
+		C031AC1B24C10EF50054F79E /* TodayMultipleAppsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C031AC1A24C10EF50054F79E /* TodayMultipleAppsController.swift */; };
+		C031AC1D24C10F6F0054F79E /* MultipleAppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C031AC1C24C10F6F0054F79E /* MultipleAppCell.swift */; };
 		C04B27E324BBB5CE00F51BE7 /* TodayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04B27E224BBB5CE00F51BE7 /* TodayController.swift */; };
 		C04B27E624BBB65F00F51BE7 /* TodayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04B27E524BBB65F00F51BE7 /* TodayCell.swift */; };
 		C071472924B800130023742B /* SocialApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C071472824B800130023742B /* SocialApp.swift */; };
@@ -66,6 +68,8 @@
 		C02CA8E024BD2BFD00356275 /* TodayAppFullScreenDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayAppFullScreenDescriptionCell.swift; sourceTree = "<group>"; };
 		C031AC1624C105B40054F79E /* TodayMultipleAppsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayMultipleAppsCell.swift; sourceTree = "<group>"; };
 		C031AC1824C10D960054F79E /* BaseTodayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTodayCell.swift; sourceTree = "<group>"; };
+		C031AC1A24C10EF50054F79E /* TodayMultipleAppsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayMultipleAppsController.swift; sourceTree = "<group>"; };
+		C031AC1C24C10F6F0054F79E /* MultipleAppCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleAppCell.swift; sourceTree = "<group>"; };
 		C04B27E224BBB5CE00F51BE7 /* TodayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayController.swift; sourceTree = "<group>"; };
 		C04B27E524BBB65F00F51BE7 /* TodayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCell.swift; sourceTree = "<group>"; };
 		C071472824B800130023742B /* SocialApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialApp.swift; sourceTree = "<group>"; };
@@ -170,6 +174,7 @@
 			children = (
 				C04B27E224BBB5CE00F51BE7 /* TodayController.swift */,
 				C00D4AB224BD293800B70BF2 /* TodayFullScreenController.swift */,
+				C031AC1A24C10EF50054F79E /* TodayMultipleAppsController.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -182,6 +187,7 @@
 				C07739ED24BFF6E0001BBF19 /* TodayAppFullScreenHeaderCell.swift */,
 				C031AC1624C105B40054F79E /* TodayMultipleAppsCell.swift */,
 				C031AC1824C10D960054F79E /* BaseTodayCell.swift */,
+				C031AC1C24C10F6F0054F79E /* MultipleAppCell.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -443,6 +449,8 @@
 				C031AC1724C105B40054F79E /* TodayMultipleAppsCell.swift in Sources */,
 				C00D4AB324BD293800B70BF2 /* TodayFullScreenController.swift in Sources */,
 				C0AC3FB024A83AC40076C27F /* AppDelegate.swift in Sources */,
+				C031AC1B24C10EF50054F79E /* TodayMultipleAppsController.swift in Sources */,
+				C031AC1D24C10F6F0054F79E /* MultipleAppCell.swift in Sources */,
 				C08E623524BA7C910072967D /* ViewController.swift in Sources */,
 				C04B27E624BBB65F00F51BE7 /* TodayCell.swift in Sources */,
 				C071472B24B80F380023742B /* HorizontalSnappingController.swift in Sources */,
