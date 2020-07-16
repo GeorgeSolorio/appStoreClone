@@ -20,7 +20,7 @@ class TodayController: BaseListController {
     
     let item = [
         TodayItem.init(category: "LIFE HACk", title: "Utilizing your Time", image: #imageLiteral(resourceName: "garden"), description: "All the tools and apps you need to inteligently organize your life the right way", backgroundColor: .white),
-        TodayItem.init(category: "HOLIDAYS", title: "Travel on a budget", image: #imageLiteral(resourceName: "holiday"), description: "Find out all you need to know about how to travel without packing everything!", backgroundColor: #colorLiteral(red: 0.8787193298, green: 0.8213496804, blue: 0.5047907233, alpha: 1))
+        TodayItem.init(category: "HOLIDAYS", title: "Travel on a budget", image: #imageLiteral(resourceName: "holiday"), description: "Find out all you need to know about how to travel without packing everything!", backgroundColor: #colorLiteral(red: 0.982437551, green: 0.9632169604, blue: 0.7271876931, alpha: 1))
     ]
     
     override func viewDidLoad() {
@@ -37,6 +37,7 @@ class TodayController: BaseListController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+        navigationController?.navigationBar.isHidden = true
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! TodayCell
         cell.todayItem = item[indexPath.item]
         return cell
@@ -54,6 +55,7 @@ class TodayController: BaseListController {
         view.addSubview(fullScreenView)
         addChild(todayAppFullScreenController)
         self.todayAppFullScreenController = todayAppFullScreenController
+        self.collectionView.isUserInteractionEnabled = false
         
         guard let cell = collectionView.cellForItem(at: indexPath) else { return }
         guard let startingFrame = cell.superview?.convert(cell.frame, to: nil) else { return }
@@ -66,7 +68,6 @@ class TodayController: BaseListController {
         leadingConstraint = fullScreenView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: startingFrame.origin.x)
         widthConstraint = fullScreenView.widthAnchor.constraint(equalToConstant: startingFrame.width)
         heightConstraint = fullScreenView.heightAnchor.constraint(equalToConstant: startingFrame.height)
-        
         
         [topConstraint, leadingConstraint, widthConstraint, heightConstraint].forEach({ $0?.isActive = true })
         
@@ -85,13 +86,17 @@ class TodayController: BaseListController {
             
             self.tabBarController?.tabBar.frame.origin.y = self.view.frame.size.height
 
+            guard let cell = self.todayAppFullScreenController.tableView.cellForRow(at: [0, 0]) as? TodayAppFullScreenHeaderCell else { return }
+            cell.todayCell.topConstraint.constant = 48
+            cell.layoutIfNeeded()
         }, completion: nil)
     }
     
     func handleRemoveView() {
         
         UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
-            self.todayAppFullScreenController.tableView.scrollsToTop = true
+            
+            //self.todayAppFullScreenController.tableView.scrollsToTop = true
 
             guard let startingFrame = self.startingFrame else { return }
             
@@ -107,12 +112,12 @@ class TodayController: BaseListController {
             }
             
             guard let cell = self.todayAppFullScreenController.tableView.cellForRow(at: [0, 0]) as? TodayAppFullScreenHeaderCell else { return }
-            cell.todayCell.topConstraint.constant = 68
-            cell.layoutIfNeeded()
-            
+               cell.todayCell.topConstraint.constant = 24
+               cell.layoutIfNeeded()
         }, completion: { _ in
             self.todayAppFullScreenController.view.removeFromSuperview()
             self.todayAppFullScreenController.removeFromParent()
+            self.collectionView.isUserInteractionEnabled = true
         })
     }
 }
