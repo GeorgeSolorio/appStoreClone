@@ -10,7 +10,7 @@ import UIKit
 
 class TodayController: BaseListController {
     
-    fileprivate let cellId = "cellId"
+    static let cellSize: CGFloat = 500
     var startingFrame: CGRect?
     var todayAppFullScreenController: TodayFullScreenController!
     var topConstraint: NSLayoutConstraint?
@@ -19,8 +19,11 @@ class TodayController: BaseListController {
     var heightConstraint: NSLayoutConstraint?
     
     let item = [
-        TodayItem.init(category: "LIFE HACk", title: "Utilizing your Time", image: #imageLiteral(resourceName: "garden"), description: "All the tools and apps you need to inteligently organize your life the right way", backgroundColor: .white),
-        TodayItem.init(category: "HOLIDAYS", title: "Travel on a budget", image: #imageLiteral(resourceName: "holiday"), description: "Find out all you need to know about how to travel without packing everything!", backgroundColor: #colorLiteral(red: 0.982437551, green: 0.9632169604, blue: 0.7271876931, alpha: 1))
+
+        TodayItem.init(category: "LIFE HACk", title: "Utilizing your Time", image: #imageLiteral(resourceName: "garden"), description: "All the tools and apps you need to inteligently organize your life the right way", backgroundColor: .white, cellType: .single),
+        TodayItem.init(category: "SECOND CELL", title: "Test-Drive these car play apps", image: #imageLiteral(resourceName: "garden"), description: "", backgroundColor: .white, cellType: .multiple),
+        TodayItem.init(category: "HOLIDAYS", title: "Travel on a budget", image: #imageLiteral(resourceName: "holiday"), description: "Find out all you need to know about how to travel without packing everything!", backgroundColor: #colorLiteral(red: 0.982437551, green: 0.9632169604, blue: 0.7271876931, alpha: 1), cellType: .single),
+        TodayItem.init(category: "THE DAILY LIST", title: "Test-Drive these car play apps", image: #imageLiteral(resourceName: "garden"), description: "", backgroundColor: .white, cellType: .multiple),
     ]
     
     override func viewDidLoad() {
@@ -28,7 +31,8 @@ class TodayController: BaseListController {
         
         navigationController?.isNavigationBarHidden = true
         collectionView.backgroundColor = #colorLiteral(red: 0.8932284713, green: 0.8867718577, blue: 0.8981721401, alpha: 1)
-        collectionView.register(TodayCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.register(TodayCell.self, forCellWithReuseIdentifier: TodayItem.CellType.single.rawValue)
+        collectionView.register(TodayMutipleAppsCell.self, forCellWithReuseIdentifier:TodayItem.CellType.multiple.rawValue)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -38,8 +42,11 @@ class TodayController: BaseListController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         navigationController?.navigationBar.isHidden = true
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! TodayCell
+        
+        let cellId = item[indexPath.item].cellType.rawValue
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! BaseTodayCell
         cell.todayItem = item[indexPath.item]
+        
         return cell
     }
     
@@ -125,7 +132,7 @@ class TodayController: BaseListController {
 extension TodayController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: view.frame.width - 64, height: 450)
+        return .init(width: view.frame.width - 64, height: TodayController.cellSize)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
