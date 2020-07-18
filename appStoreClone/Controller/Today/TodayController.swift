@@ -17,13 +17,6 @@ class TodayController: BaseListController {
     var leadingConstraint:  NSLayoutConstraint?
     var widthConstraint: NSLayoutConstraint?
     var heightConstraint: NSLayoutConstraint?
-//
-//    let item = [
-//
-//
-//        TodayItem.init(category: "THE DAILY LIST", title: "Test-Drive these car play apps", image: #imageLiteral(resourceName: "garden"), description: "", backgroundColor: .white, cellType: .multiple),
-//    ]
-    
     var item = [TodayItem]()
     
     var activityIndicatorView: UIActivityIndicatorView = {
@@ -40,14 +33,12 @@ class TodayController: BaseListController {
         view.addSubview(activityIndicatorView)
         activityIndicatorView.centerInSuperView()
         fetchData()
-        navigationController?.isNavigationBarHidden = true
         collectionView.backgroundColor = #colorLiteral(red: 0.8932284713, green: 0.8867718577, blue: 0.8981721401, alpha: 1)
         collectionView.register(TodayCell.self, forCellWithReuseIdentifier: TodayItem.CellType.single.rawValue)
         collectionView.register(TodayMutipleAppsCell.self, forCellWithReuseIdentifier:TodayItem.CellType.multiple.rawValue)
     }
     
     fileprivate func fetchData() {
-        
         let dispatchGroup = DispatchGroup()
         var topGrossingGroup: AppGroup?
         var gamesGroup: AppGroup?
@@ -78,13 +69,12 @@ class TodayController: BaseListController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        navigationController?.isNavigationBarHidden = true
         return item.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        navigationController?.navigationBar.isHidden = true
-        
+
         let cellId = item[indexPath.item].cellType.rawValue
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! BaseTodayCell
         cell.todayItem = item[indexPath.item]
@@ -93,6 +83,13 @@ class TodayController: BaseListController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if item[indexPath.item].cellType == .multiple {
+            let fullController = TodayMultipleAppsController(mode: .fullScreen)
+            fullController.results = self.item[indexPath.item].apps
+            present(fullController, animated: true)
+            return
+        }
         
         let todayAppFullScreenController = TodayFullScreenController()
         todayAppFullScreenController.dismissHandler = {
