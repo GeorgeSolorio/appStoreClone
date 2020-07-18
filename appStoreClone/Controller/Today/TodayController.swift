@@ -27,6 +27,11 @@ class TodayController: BaseListController {
         return aiv
     }()
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -69,7 +74,6 @@ class TodayController: BaseListController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        navigationController?.isNavigationBarHidden = true
         return item.count
     }
     
@@ -79,7 +83,26 @@ class TodayController: BaseListController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! BaseTodayCell
         cell.todayItem = item[indexPath.item]
         
+        (cell as? TodayMutipleAppsCell)?.multiplesAppsController.collectionView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleMultipleApps)))
+        
         return cell
+    }
+    
+    @objc func handleMultipleApps(gesture: UITapGestureRecognizer) {
+        let collectionView = gesture.view
+        
+        var superview = collectionView?.superview
+        while superview != nil {
+            if let cell = superview as? TodayMutipleAppsCell {
+                guard let indexPath = self.collectionView.indexPath(for: cell) else { return }
+                let apps = self.item[indexPath.item].apps
+                let fullController = TodayMultipleAppsController(mode: .fullScreen)
+                fullController.results = apps
+                present(DimissNavigationController(rootViewController: fullController), animated: true)
+                return
+            }
+            superview = superview?.superview
+        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -87,7 +110,7 @@ class TodayController: BaseListController {
         if item[indexPath.item].cellType == .multiple {
             let fullController = TodayMultipleAppsController(mode: .fullScreen)
             fullController.results = self.item[indexPath.item].apps
-            present(fullController, animated: true)
+            present(DimissNavigationController(rootViewController: fullController), animated: true)
             return
         }
         

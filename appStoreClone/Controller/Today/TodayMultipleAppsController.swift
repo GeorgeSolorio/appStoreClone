@@ -18,17 +18,6 @@ class TodayMultipleAppsController: BaseListController {
     fileprivate let mode: Mode
     let cellId = "cellId"
     var results = [FeedResult]()
-//    let closeButton: UIButton = {
-//        let button = UIButton(type: .system)
-//        button.setImage(#imageLiteral(resourceName: "close_button"), for: .normal)
-//        button.tintColor = .darkGray
-//        button.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
-//        return button
-//    }()
-//
-//    @objc func handleDismiss() {
-//        dismiss(animated: true)
-//    }
     
     init(mode: Mode) {
         self.mode = mode
@@ -44,15 +33,19 @@ class TodayMultipleAppsController: BaseListController {
         
         if mode == .small {
             collectionView.isScrollEnabled = false
+        } else {
+            navigationController?.isNavigationBarHidden = true
         }
+        
         collectionView.backgroundColor = .white
         collectionView.register(MultipleAppCell.self, forCellWithReuseIdentifier: cellId)
     }
     
-//    func setupCloseButton() {
-//        view.addSubview(closeButton)
-//        closeButton.anchor(top: view.topAnchor, leading: nil, bottom: nil, trailing: view.trailingAnchor, padding:.init(top: 16, left: 0, bottom: 0, right: 8), size: .init(width: 44, height: 44))
-//    }
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let appId = self.results[indexPath.item].id
+        let appDetailController = AppDetailController(appId: appId)
+        navigationController?.pushViewController(appDetailController, animated: true)
+    }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if mode == .fullScreen {

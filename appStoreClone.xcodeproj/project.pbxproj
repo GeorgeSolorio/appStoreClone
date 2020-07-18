@@ -29,6 +29,7 @@
 		C071473124B825E40023742B /* AppDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C071473024B825E40023742B /* AppDetailCell.swift */; };
 		C0769E3B24AA6851003900C0 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0769E3A24AA6851003900C0 /* SearchResultCell.swift */; };
 		C07739EE24BFF6E0001BBF19 /* TodayAppFullScreenHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07739ED24BFF6E0001BBF19 /* TodayAppFullScreenHeaderCell.swift */; };
+		C07776DA24C27A63007D680D /* DimissNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07776D924C27A63007D680D /* DimissNavigationController.swift */; };
 		C078AE0824C0BADC001029DF /* TodayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C078AE0724C0BADC001029DF /* TodayItem.swift */; };
 		C08E622F24BA723A0072967D /* PreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E622E24BA723A0072967D /* PreviewCell.swift */; };
 		C08E623124BA73A10072967D /* PreviewScreenshotController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E623024BA73A10072967D /* PreviewScreenshotController.swift */; };
@@ -78,6 +79,7 @@
 		C071473024B825E40023742B /* AppDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailCell.swift; sourceTree = "<group>"; };
 		C0769E3A24AA6851003900C0 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		C07739ED24BFF6E0001BBF19 /* TodayAppFullScreenHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayAppFullScreenHeaderCell.swift; sourceTree = "<group>"; };
+		C07776D924C27A63007D680D /* DimissNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimissNavigationController.swift; sourceTree = "<group>"; };
 		C078AE0724C0BADC001029DF /* TodayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayItem.swift; sourceTree = "<group>"; };
 		C08E622E24BA723A0072967D /* PreviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCell.swift; sourceTree = "<group>"; };
 		C08E623024BA73A10072967D /* PreviewScreenshotController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewScreenshotController.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				C04B27E224BBB5CE00F51BE7 /* TodayController.swift */,
 				C00D4AB224BD293800B70BF2 /* TodayFullScreenController.swift */,
 				C031AC1A24C10EF50054F79E /* TodayMultipleAppsController.swift */,
+				C07776D924C27A63007D680D /* DimissNavigationController.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -462,6 +465,7 @@
 				C071473124B825E40023742B /* AppDetailCell.swift in Sources */,
 				C0769E3B24AA6851003900C0 /* SearchResultCell.swift in Sources */,
 				C08E623124BA73A10072967D /* PreviewScreenshotController.swift in Sources */,
+				C07776DA24C27A63007D680D /* DimissNavigationController.swift in Sources */,
 				C02CA8E124BD2BFD00356275 /* TodayAppFullScreenDescriptionCell.swift in Sources */,
 				C08E622F24BA723A0072967D /* PreviewCell.swift in Sources */,
 				C08E623B24BA800E0072967D /* ReviewsController.swift in Sources */,
@@ -631,7 +635,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.GeorgeSolorio.appStoreClone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -650,7 +654,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.GeorgeSolorio.appStoreClone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
