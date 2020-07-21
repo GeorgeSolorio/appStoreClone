@@ -25,6 +25,14 @@ class TodayFullScreenController: UITableViewController {
         }
     }
     
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y < 0 {
+            scrollView.isScrollEnabled = false
+            scrollView.isScrollEnabled = true
+
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
             return TodayController.cellSize
@@ -44,6 +52,7 @@ class TodayFullScreenController: UITableViewController {
             headerCell.closeButton.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
             headerCell.todayCell.layer.cornerRadius = 0
             headerCell.clipsToBounds = true
+            headerCell.todayCell.backgroundView = nil
             return headerCell
         }
         

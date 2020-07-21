@@ -12,10 +12,12 @@ class TodayController: BaseListController {
     
     // MARK: Properties
     static let cellSize: CGFloat = 500
+    let blurVisualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
     var startingFrame: CGRect?
     var todayAppFullScreenController: TodayFullScreenController!
     var item = [TodayItem]()
     var anchoredConstraint: AnchoredConstraints?
+    var appFullScreenBeginOffset: CGFloat = 0
     
     var activityIndicatorView: UIActivityIndicatorView = {
         let aiv = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
@@ -35,7 +37,10 @@ class TodayController: BaseListController {
         super.viewDidLoad()
         
         view.addSubview(activityIndicatorView)
+        view.addSubview(blurVisualEffectView)
         activityIndicatorView.centerInSuperView()
+        blurVisualEffectView.fillSuperView()
+        blurVisualEffectView.alpha = 0
         fetchData()
         collectionView.backgroundColor = #colorLiteral(red: 0.8932284713, green: 0.8867718577, blue: 0.8981721401, alpha: 1)
         collectionView.register(TodayCell.self, forCellWithReuseIdentifier: TodayItem.CellType.single.rawValue)
@@ -57,6 +62,23 @@ class TodayController: BaseListController {
         (cell as? TodayMutipleAppsCell)?.multiplesAppsController.collectionView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleMultipleApps)))
         
         return cell
+    }
+    
+    @objc fileprivate func handleMultipleApps(gesture: UITapGestureRecognizer) {
+        let collectionView = gesture.view
+        
+        var superview = collectionView?.superview
+        while superview != nil {
+            if let cell = superview as? TodayMutipleAppsCell {
+                guard let indexPath = self.collectionView.indexPath(for: cell) else { return }
+                let apps = self.item[indexPath.item].apps
+                let fullController = TodayMultipleAppsController(mode: .fullScreen)
+                fullController.results = apps
+                present(DimissNavigationController(rootViewController: fullController), animated: true)
+                return
+            }
+            superview = superview?.superview
+        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -113,14 +135,48 @@ extension TodayController {
     }
     
     fileprivate func setupFullScreenController(indexPath: IndexPath) {
+        
         let todayAppFullScreenController = TodayFullScreenController()
         todayAppFullScreenController.dismissHandler = {
-            self.handleRemoveView()
+            self.handleFullScreenDimissal()
         }
         
         todayAppFullScreenController.todayItem = item[indexPath.item]
         todayAppFullScreenController.view.layer.cornerRadius = 16
         self.todayAppFullScreenController = todayAppFullScreenController
+        
+        let gesture = UIPanGestureRecognizer(target: self, action: #selector(handleDrag))
+        gesture.delegate = self
+        todayAppFullScreenController.view.addGestureRecognizer(gesture)
+        
+    }
+    
+    @objc fileprivate func handleDrag(gesture: UIPanGestureRecognizer) {
+        
+        let translationY = gesture.translation(in: todayAppFullScreenController.view).y
+
+        if gesture.state == .began {
+            appFullScreenBeginOffset = todayAppFullScreenController.tableView.contentOffset.y
+        }
+        
+        if todayAppFullScreenController.tableView.contentOffset.y > 0 {
+            return
+        }
+        
+        if gesture.state == .changed {
+            if translationY > 0 {
+                let trueOffSet = translationY - appFullScreenBeginOffset
+                var scale = 1 - trueOffSet / 1000
+                scale = min(1, scale)
+                scale = max(0.5, scale)
+                let transform: CGAffineTransform = .init(scaleX: scale, y: scale)
+                self.todayAppFullScreenController.view.transform = transform
+            }
+        } else if gesture.state == .ended  {
+            if translationY > 0 {
+                handleFullScreenDimissal()
+            }
+        }
     }
     
     fileprivate func setupStartingFrame(indexPath: IndexPath) {
@@ -145,6 +201,7 @@ extension TodayController {
         self.view.layoutIfNeeded() // starts the animation
         UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
             
+            self.blurVisualEffectView.alpha = 1
             self.anchoredConstraint?.top?.constant = 0
             self.anchoredConstraint?.leading?.constant = 0
             self.anchoredConstraint?.width?.constant = self.view.frame.width
@@ -168,34 +225,17 @@ extension TodayController {
     }
 }
 
-// MARK: Helper Methods
+// MARK: Animation
 extension TodayController {
-
-    @objc func handleMultipleApps(gesture: UITapGestureRecognizer) {
-        let collectionView = gesture.view
-        
-        var superview = collectionView?.superview
-        while superview != nil {
-            if let cell = superview as? TodayMutipleAppsCell {
-                guard let indexPath = self.collectionView.indexPath(for: cell) else { return }
-                let apps = self.item[indexPath.item].apps
-                let fullController = TodayMultipleAppsController(mode: .fullScreen)
-                fullController.results = apps
-                present(DimissNavigationController(rootViewController: fullController), animated: true)
-                return
-            }
-            superview = superview?.superview
-        }
-    }
     
-    func handleRemoveView() {
+    func handleFullScreenDimissal() {
         
         UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
             
-            //self.todayAppFullScreenController.tableView.scrollsToTop = true
-            
             guard let startingFrame = self.startingFrame else { return }
             
+            self.blurVisualEffectView.alpha = 0
+            self.todayAppFullScreenController.view.transform = .identity
             self.anchoredConstraint?.top?.constant = startingFrame.origin.y
             self.anchoredConstraint?.leading?.constant = startingFrame.origin.x
             self.anchoredConstraint?.width?.constant = startingFrame.width
@@ -206,8 +246,8 @@ extension TodayController {
             if let tabBarFrame = self.tabBarController?.tabBar.frame {
                 self.tabBarController?.tabBar.frame.origin.y = self.view.frame.height - tabBarFrame.height
             }
-            
             guard let cell = self.todayAppFullScreenController.tableView.cellForRow(at: [0, 0]) as? TodayAppFullScreenHeaderCell else { return }
+            cell.closeButton.alpha = 0
             cell.todayCell.topConstraint.constant = 24
             cell.layoutIfNeeded()
         }, completion: { _ in
@@ -215,6 +255,12 @@ extension TodayController {
             self.todayAppFullScreenController.removeFromParent()
             self.collectionView.isUserInteractionEnabled = true
         })
+    }
+}
+
+extension TodayController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
 }
 
