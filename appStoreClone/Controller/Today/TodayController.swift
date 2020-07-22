@@ -235,6 +235,7 @@ extension TodayController {
             guard let startingFrame = self.startingFrame else { return }
             
             self.blurVisualEffectView.alpha = 0
+            self.todayAppFullScreenController.tableView.contentOffset = .zero
             self.todayAppFullScreenController.view.transform = .identity
             self.anchoredConstraint?.top?.constant = startingFrame.origin.y
             self.anchoredConstraint?.leading?.constant = startingFrame.origin.x
@@ -247,7 +248,7 @@ extension TodayController {
                 self.tabBarController?.tabBar.frame.origin.y = self.view.frame.height - tabBarFrame.height
             }
             guard let cell = self.todayAppFullScreenController.tableView.cellForRow(at: [0, 0]) as? TodayAppFullScreenHeaderCell else { return }
-            cell.closeButton.alpha = 0
+            self.todayAppFullScreenController.closeButton.alpha = 0
             cell.todayCell.topConstraint.constant = 24
             cell.layoutIfNeeded()
         }, completion: { _ in
