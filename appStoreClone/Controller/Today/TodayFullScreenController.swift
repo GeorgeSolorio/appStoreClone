@@ -34,6 +34,8 @@ class TodayFullScreenController: UIViewController, UITableViewDelegate, UITableV
         if let height = self.view.window?.windowScene?.statusBarManager?.statusBarFrame.height {
             tableView.contentInset = .init(top: 0, left: 0, bottom: height, right: 0)
         }
+        
+        setupFloatinControls()
     }
     
     fileprivate func setupCloseButton() {
@@ -79,5 +81,44 @@ class TodayFullScreenController: UIViewController, UITableViewDelegate, UITableV
     @objc func handleDismiss(button: UIButton) {
         button.isHidden = true
         dismissHandler?()
+    }
+    
+    fileprivate func setupFloatinControls() {
+        let floatingContainerView = UIView()
+        
+        let getButton = UIButton(title: "GET")
+        getButton.setTitleColor(.white, for: .normal)
+        getButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        getButton.backgroundColor = .darkGray
+        getButton.layer.cornerRadius = 16
+        getButton.constraintWidth(constant: 90)
+        getButton.constraintHeight(constant: 32)
+        
+        floatingContainerView.layer.cornerRadius = 16
+        floatingContainerView.clipsToBounds = true
+        view.addSubview(floatingContainerView)
+        floatingContainerView.anchor(top: nil, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 16, bottom: 16, right: 16), size: .init(width: 0, height: 100))
+        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
+        floatingContainerView.addSubview(visualEffectView)
+        visualEffectView.fillSuperView()
+        
+        // Add our subviews
+        let imageView = UIImageView(cornerRadius: 16)
+        imageView.image = #imageLiteral(resourceName: "garden")
+        imageView.constraintHeight(constant: 68)
+        imageView.constraintWidth(constant: 68)
+        
+        let stackView = UIStackView(arrangedSubviews: [
+            imageView, 
+            VerticalStackView(arrangedSubviews: [
+                UILabel(text: "Life Hack", font: .boldSystemFont(ofSize: 18)),
+                UILabel(text: "Utilizing Your Time", font: .systemFont(ofSize: 16), numberOfLines: 0),
+            ]),
+            getButton,
+        ], customSpacing: 16)
+        
+        floatingContainerView.addSubview(stackView)
+        stackView.fillSuperView(padding: .init(top: 0, left: 16, bottom: 0, right: 16))
+        stackView.alignment = .center
     }
 }
