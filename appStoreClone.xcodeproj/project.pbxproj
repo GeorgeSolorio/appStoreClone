@@ -160,6 +160,7 @@
 		C02129A624AA420500A22C03 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C0BFD85724D3C41300A43321 /* Music */,
 				C04B27E124BBB5C400F51BE7 /* Today */,
 				C0967B8624B4EA4B00CE268E /* Search */,
 				C0967B8124B4E8FD00CE268E /* Apps */,
@@ -311,6 +312,13 @@
 				C0769E3924AA6832003900C0 /* Views */,
 			);
 			path = appStoreClone;
+			sourceTree = "<group>";
+		};
+		C0BFD85724D3C41300A43321 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Music;
 			sourceTree = "<group>";
 		};
 		C0E408BD24B4EB94008E02AA /* Apps */ = {

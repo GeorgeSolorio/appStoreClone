@@ -13,6 +13,7 @@ class TodayFullScreenController: UIViewController, UITableViewDelegate, UITableV
     var dismissHandler: (() -> ())?
     var todayItem: TodayItem?
     let tableView = UITableView(frame: .zero, style: .plain)
+    let floatingContainerView = UIView()
     let closeButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(#imageLiteral(resourceName: "close_button"), for: .normal)
@@ -48,8 +49,15 @@ class TodayFullScreenController: UIViewController, UITableViewDelegate, UITableV
         if scrollView.contentOffset.y < 0 {
             scrollView.isScrollEnabled = false
             scrollView.isScrollEnabled = true
-
         }
+        
+        let height = view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
+        let translationY = -90 - height
+        let transfrom = scrollView.contentOffset.y > 100 ? CGAffineTransform(translationX: 0, y: translationY) : .identity
+        
+        UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
+            self.floatingContainerView.transform = transfrom
+        })
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -84,7 +92,6 @@ class TodayFullScreenController: UIViewController, UITableViewDelegate, UITableV
     }
     
     fileprivate func setupFloatinControls() {
-        let floatingContainerView = UIView()
         
         let getButton = UIButton(title: "GET")
         getButton.setTitleColor(.white, for: .normal)
@@ -97,11 +104,11 @@ class TodayFullScreenController: UIViewController, UITableViewDelegate, UITableV
         floatingContainerView.layer.cornerRadius = 16
         floatingContainerView.clipsToBounds = true
         view.addSubview(floatingContainerView)
-        floatingContainerView.anchor(top: nil, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 16, bottom: 16, right: 16), size: .init(width: 0, height: 100))
+        floatingContainerView.anchor(top: nil, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 16, bottom: -90, right: 16), size: .init(width: 0, height: 100))
         let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
         floatingContainerView.addSubview(visualEffectView)
         visualEffectView.fillSuperView()
-        
+                
         // Add our subviews
         let imageView = UIImageView(cornerRadius: 16)
         imageView.image = #imageLiteral(resourceName: "garden")
