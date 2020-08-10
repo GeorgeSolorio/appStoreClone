@@ -57,8 +57,9 @@ class CompositionalController: UICollectionViewController {
             } else {
                 
                 let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1/3)))
-                
                 item.contentInsets = .init(top: 0, leading: 0, bottom: 16, trailing: 16)
+
+                
                 let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .fractionalWidth(0.8), heightDimension: .absolute(300)), subitems: [item])
                 let section = NSCollectionLayoutSection(group: group)
                 
@@ -78,8 +79,16 @@ class CompositionalController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath)
-        
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! CompositionalHeader
+        var title: String?
+        if indexPath.section == 1{
+            title = games?.feed.title
+        } else if indexPath.section == 2 {
+            title = topGrossingApps?.feed.title
+        } else {
+            title = freeApps?.feed.title
+        }
+        header.label.text = title
         return header
     }
     
@@ -127,10 +136,18 @@ class CompositionalController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        let count: Int
         if section == 0 {
-            return socialApps.count
+            count = socialApps.count
+        } else if section == 1 {
+            count = games?.feed.results.count ?? 0
+        } else if section == 2 {
+            count = topGrossingApps?.feed.results.count ?? 0
+        } else {
+            count = freeApps?.feed.results.count ?? 0
         }
-        return games?.feed.results.count ?? 0
+        return count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -169,7 +186,6 @@ struct AppsView: UIViewControllerRepresentable {
     }
     
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
-        
     }
 }
 
