@@ -7,13 +7,13 @@ These behaviors consist of fetching iTunes data, displaying multiple tab control
 The project follows the MVC artchitecture along with an API service class. 
 The entire app consits of four different tab controllers that demonstrate the data in four different ways
 
-* Music tab consist of a Table View list with songs from Taylor Swift
+* **Music tab** consist of a Table View list with songs from Taylor Swift
 
-* Today tab consists of todays' highly rated apps.
+* **Today tab** consists of todays' highly rated apps.
 
-* Apps tab containing scrolls views that demonstrate a list of *editor's choice*, *top free iphone apps* and *top grossing apps*.
+* **Apps tab** containing scrolls views that demonstrate a list of *editor's choice*, *top free iphone apps* and *top grossing apps*.
 
-* A search tab that allows the user to search any app they look for
+* **Search tab** allows the user to search any app they want by typing the name on the search bar.
 
 Each tab has it's own Model, View and Controller. The view's were also manually coded in order to gain better access of its size and display.
 
