@@ -11,7 +11,7 @@ The entire app consits of four different tab controllers that demonstrate the da
 
 * Today tab consists of todays' highly rated apps.
 
-* Apss tab containing scrolls views that demonstrate a list of an editor's choice, top free iphone apps and top grossing apps.
+* Apps tab containing scrolls views that demonstrate a list of *editor's choice*, *top free iphone apps* and *top grossing apps*.
 
 * A search tab that allows the user to search any app they look for
 
