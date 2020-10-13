@@ -1,7 +1,7 @@
 # appStoreClone 
 
 ## About
-A case study based on Brian Voong's tutorials on iOS. The app attempts to mock Apple's App Store behavior. 
+A case study based on [Brian Voong's](https://www.youtube.com/channel/UCuP2vJ6kRutQBfRmdcI92mA) tutorials on iOS. The app attempts to mock Apple's App Store behavior. 
 These behaviors consist of fetching iTunes data, displaying multiple tab controllers, displaying data in scroll views and animated feedback
 
 The project follows the MVC artchitecture along with an API service class. 
