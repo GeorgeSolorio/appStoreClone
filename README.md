@@ -33,7 +33,7 @@ You can run this project on Xcode and simulate the app on any desired Iphone sim
 Each tab will show data recieved from the iTunes API
 
 ## Models 📬
-All model objects are located in the [models](https://github.com/GeorgeSolorio/appStoreClone/tree/master/appStoreClone/Model) folder.l
+All model objects are located in the [models](https://github.com/GeorgeSolorio/appStoreClone/tree/master/appStoreClone/Model) folder.
 
 | File                   | Description                                    | Obejcts                                  |
 | -----------------------|:-----------------------------------------------|:-----------------------------------------|
