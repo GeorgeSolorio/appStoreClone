@@ -19,26 +19,25 @@ Each tab has it's own Model, View and Controller. The view's were also manually 
 
 ## Learning Objectives
 * How to set up User interface
+* Setup Decodable objects based on Itunes API
 * Fetch Itunes data and convert JSON data into Swift decodable obejects
 * Synchronize multiple fetches
-* Snapping collection view layouts
-* Handle user selection
-* Handle user interaction with animation for feedback
-* Manually type auto layout contraints
+* Snap collection view layouts scrolling
+* Handle user interaction with animated feedback
+* Manually setup auto layout contraints
 * Setup navigation views and tab controllers
-* Setup transitions to other views
 
 ## Usage
-You can run this project on Xcode and simulate the app on any desired Iphone simulator.
-Each tab will show data recieved from the iTunes API
+You can run this project in Xcode and simulate the app on any desired Iphone simulator.
+It should display a set of tabs consting of views that provide information about Itune's latest apps list
 
 ## Models 📬
-All model objects are located in the [models](https://github.com/GeorgeSolorio/appStoreClone/tree/master/appStoreClone/Model) folder.
+All model objects are located in the [models](https://github.com/GeorgeSolorio/appStoreClone/tree/master/appStoreClone/Model) folder
 
 | File                   | Description                                    | Obejcts                                  |
 | -----------------------|:-----------------------------------------------|:-----------------------------------------|
-| AppGroup.swift         | The root of three major Feed objects           | AppGroup, Feed, FeedResult,              |
-| CustomerReviews.swift  | A set of key objects used for reviews          | Reviews, ReviewFeed, Entry, Author, Label|
+| AppGroup.swift         | The root of three major feed objects           | AppGroup, Feed, FeedResult               |
+| CustomerReviews.swift  | A set objects used for reviews                 | Reviews, ReviewFeed, Entry, Author, Label|
 | SearchResult.swift     | A set of search result keys                    | SearchResult, Result                     |
 | SocialApp.swift        | Holds keys for the app image information       | SocialApp                                |
 | todayItem.swift        | Holds infomations about the apps detailed data | TodayItem                                |
@@ -46,7 +45,7 @@ All model objects are located in the [models](https://github.com/GeorgeSolorio/a
 Each model is used for mapping JSON data into Swift decodable structs from the Itunes API
 
 ## Views 🖼
-You can find the View classes in the [Views](https://github.com/GeorgeSolorio/appStoreClone/tree/master/appStoreClone/Views) folder.
+You can find the View classes in the [Views](https://github.com/GeorgeSolorio/appStoreClone/tree/master/appStoreClone/Views) folder
 
 | Folder                   | Description                                                                | Objects                               |
 | -----------------------|:-----------------------------------------------------------------------------|:-----------------------------------------|
@@ -55,7 +54,7 @@ You can find the View classes in the [Views](https://github.com/GeorgeSolorio/ap
 | Today                  | This folder consits of files that help display information on the Today Tab  | TodayAppFullScreenHeaderCell, BaseTodayCell, MultipleAppCell, TodayAppFullScreenDescriptionCell, TodayAppFullScreenHeaderCell, TodayCell, TodayMutipleAppsCell |
 
 ## Controller 🕹
-You can find the controller classes in the [Controller](https://github.com/GeorgeSolorio/appStoreClone/tree/master/appStoreClone/Controller) folder.
+You can find the controller classes in the [Controller](https://github.com/GeorgeSolorio/appStoreClone/tree/master/appStoreClone/Controller) folder
 | Controllers              | Description                                    |
 | -------------------------|:-----------------------------------------------|
 | App                      | This folder helps initialize and display the app's tab view. Using tools from SwiftUI for its collection view and displaying details about apps in the scroll view|
