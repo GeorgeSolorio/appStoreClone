@@ -64,7 +64,7 @@ You can find the View folders in the [Views](https://github.com/GeorgeSolorio/ap
 You can find the controller classes in the [Controller](https://github.com/GeorgeSolorio/appStoreClone/tree/master/appStoreClone/Controller) folder
 | Controllers              | Description                                    |
 | -------------------------|:-----------------------------------------------|
-| [App](https://github.com/GeorgeSolorio/appStoreClone/tree/master/appStoreClone/Controller/Apps)                      | This folder helps initialize and display the app's tab view. Using tools from SwiftUI for its collection view and displaying details about apps in the scroll view|
+| [App](https://github.com/GeorgeSolorio/appStoreClone/tree/master/appStoreClone/Controller/Apps)                      | This folder helps initialize and display the app's tab view. It uses SwiftUI for its collection view and displays the sections with a collection of apps that scrolled trough and selected |
 | [Today](https://github.com/GeorgeSolorio/appStoreClone/tree/master/appStoreClone/Controller/Today)                    | This folder consits of code that helps display four main cells. Each cell displays information, provides user interaction and creates feedback by zooming in and out of a cell in an animated way |
 | [Base](https://github.com/GeorgeSolorio/appStoreClone/tree/master/appStoreClone/Controller)                   | A set of base controllers consisting of common behaviours found in many of our views. These objects allow us to speed up the process initializing controllers such as the TabBarController, BaseListController and HorizontalSnappingController |
 | [Search](https://github.com/GeorgeSolorio/appStoreClone/tree/master/appStoreClone/Controller/Search)  | This folder consists of a single file that makes use of Apple's UISearchController, allowing us to fetch user input |
@@ -74,5 +74,5 @@ You can find the controller classes in the [Controller](https://github.com/Georg
 You can find the Service class in the [Service](https://github.com/GeorgeSolorio/appStoreClone/tree/master/appStoreClone/Service) folder
 
 ## Third party services: SDWebImage 
-We used SDWebImage to help us download and display images in a simpler and intuitive way 
+We used [SDWebImage](https://github.com/SDWebImage/SDWebImage) to help us download and display images in a simpler and intuitive way 
 
