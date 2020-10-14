@@ -35,7 +35,7 @@ greated with four different screens
 
 | Music                                |  Today's highlight                           | Top of the list apps                 | Search the store                  |
 :-------------------------------------:|:-------------------------------------------: |:------------------------------------:|:---------------------------------:|
-| Check out Taylor's latest music feed |  Check out today's essential apps            |  Checkout current trending apps      | Search an app you're interested in|
+| Check out Taylor's latest music feed |  See what's todays essential apps            |  look at today's top apps list      | Search an app you're interested in|
 |![Taylor](images/TaylorSwift.png) ![MTaylor](images/MoreTaylor.png)   |  ![Daily](images/DailyList.png) ![DList](images/DailyFullList.png)| ![Track](images/TopFreeList.png) ![TResult](images/AppResut.png) | ![Search](images/Search.png) ![SResult](images/SearchResult.png)|
 
 ## Models 📬
