@@ -74,5 +74,5 @@ You can find the controller classes in the [Controller](https://github.com/Georg
 You can find the Service class in the [Service](https://github.com/GeorgeSolorio/appStoreClone/tree/master/appStoreClone/Service) folder
 
 ## Third party services: SDWebImage 
-We used [SDWebImage](https://github.com/SDWebImage/SDWebImage) to help us download and display images in a simpler and intuitive way 
+We used [SDWebImage](https://github.com/SDWebImage/SDWebImage) to help us display fetched images in a simpler and intuitive way 
 
