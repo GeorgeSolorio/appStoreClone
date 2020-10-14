@@ -29,7 +29,14 @@ Each tab has it's own Model, View and Controller. The view's were also manually 
 
 ## Usage
 You can run this project in Xcode and simulate the app on any desired Iphone simulator.
-It should display a set of tabs consting of views that provide information about Itune's latest apps list
+
+Welcome to the App store clone! This app contains many similar features you'd find in Apple's original app store. When you launch this app, you'll be
+greated with four different screens
+
+| Music                                |  Today's highlight                           | Top of the list apps                 | Search the store                  |
+:-------------------------------------:|:-------------------------------------------: |:------------------------------------:|:---------------------------------:|
+| Check out Taylor's latest music feed |  Check out today's essential apps            |  Checkout current trending apps      | Search an app you're interested in|
+|![Taylor](Images/Taylor\ Swift.png)   |  ![Daily](Images/DailyList.png) ![DList](Images/DailyFullList.png)| ![Track](Images/TopFreeList.png) ![TResult](Images/TopFreeList.png) | ![Search](Images/Search.png) ![SResult](Images/SearchResult.png)|
 
 ## Models 📬
 All model objects are located in the [models](https://github.com/GeorgeSolorio/appStoreClone/tree/master/appStoreClone/Model) folder
