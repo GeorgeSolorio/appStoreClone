@@ -53,7 +53,7 @@ Each model is used for mapping JSON data into Swift decodable structs from the I
 ## Views 🖼
 You can find the View folders in the [Views](https://github.com/GeorgeSolorio/appStoreClone/tree/master/appStoreClone/Views) folder
 
-| Views                  | Description                                                                | Objects                               |
+| Views                  | Description                                                                  | Objects                               |
 | -----------------------|:-----------------------------------------------------------------------------|:-----------------------------------------|
 | [Apps](https://github.com/GeorgeSolorio/appStoreClone/tree/master/appStoreClone/Views/Apps)                   | This folder consits of files that help display details about the fetched app | AppRowCell, AppHeaderCell, AppDetailCell, PreviewCell,  ReviewInfoCell, ReviewRowCell |
 | [Music](https://github.com/GeorgeSolorio/appStoreClone/tree/master/appStoreClone/Views/Music)                 | This folder helps display infomation about a given track                     | TrackCell, MusicLoadingFooter          |
@@ -62,12 +62,12 @@ You can find the View folders in the [Views](https://github.com/GeorgeSolorio/ap
 
 ## Controller 🕹
 You can find the controller classes in the [Controller](https://github.com/GeorgeSolorio/appStoreClone/tree/master/appStoreClone/Controller) folder
-| Controllers              | Description                                    |
-| -------------------------|:-----------------------------------------------|
-| [App](https://github.com/GeorgeSolorio/appStoreClone/tree/master/appStoreClone/Controller/Apps)                      | This folder helps initialize and display the app's tab view. It uses SwiftUI for its collection view and displays the sections with a collection of apps that scrolled trough and selected |
-| [Today](https://github.com/GeorgeSolorio/appStoreClone/tree/master/appStoreClone/Controller/Today)                    | This folder consits of code that helps display four main cells. Each cell displays information, provides user interaction and creates feedback by zooming in and out of a cell in an animated way |
-| [Base](https://github.com/GeorgeSolorio/appStoreClone/tree/master/appStoreClone/Controller)                   | A set of base controllers consisting of common behaviours found in many of our views. These objects allow us to speed up the process initializing controllers such as the TabBarController, BaseListController and HorizontalSnappingController |
-| [Search](https://github.com/GeorgeSolorio/appStoreClone/tree/master/appStoreClone/Controller/Search)  | This folder consists of a single file that makes use of Apple's UISearchController, allowing us to fetch user input |
+| Controllers              | Description                                    | Objects                               |
+| -------------------------|:-----------------------------------------------| :-------------------------------------|
+| [App](https://github.com/GeorgeSolorio/appStoreClone/tree/master/appStoreClone/Controller/Apps) | This folder helps initialize and display the app's tab view. It uses SwiftUI for its collection view and displays the sections with a collection of apps that scrolled trough and selected | AppsPageController, PreviewScreenshotController, AppDetailController, ReviewsController |
+| [Today](https://github.com/GeorgeSolorio/appStoreClone/tree/master/appStoreClone/Controller/Today)  | This folder consits of code that helps display four main cells. Each cell displays information, provides user interaction and creates feedback by zooming in and out of a cell in an animated way | DimissNavigationController, TodayController, TodayFullScreenController, TodayMultipleAppsController | 
+| [Base](https://github.com/GeorgeSolorio/appStoreClone/tree/master/appStoreClone/Controller) | A set of base controllers consisting of common behaviours found in many of our views. These objects allow us to speed up the process initializing controllers such as the TabBarController, BaseListController and HorizontalSnappingController | BaseListController, BaseTabBarController, HorizontalSnappingController|
+| [Search](https://github.com/GeorgeSolorio/appStoreClone/tree/master/appStoreClone/Controller/Search)  | This folder consists of a single file that makes use of Apple's UISearchController, allowing us to fetch user input | AppsSearchController | 
 
 
 ## Service 📥
