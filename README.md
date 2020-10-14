@@ -58,7 +58,7 @@ You can find the View folders in the [Views](https://github.com/GeorgeSolorio/ap
 | [Apps](https://github.com/GeorgeSolorio/appStoreClone/tree/master/appStoreClone/Views/Apps)                   | This folder consits of files that help display details about the fetched app | AppRowCell, AppHeaderCell, AppDetailCell, PreviewCell,  ReviewInfoCell, ReviewRowCell |
 | [Music](https://github.com/GeorgeSolorio/appStoreClone/tree/master/appStoreClone/Views/Music)                 | This folder helps display infomation about a given track                     | TrackCell, MusicLoadingFooter          |
 | [Today](https://github.com/GeorgeSolorio/appStoreClone/tree/master/appStoreClone/Views/Today)                  | This folder consits of files that help display information on the Today Tab  | TodayAppFullScreenHeaderCell, BaseTodayCell, MultipleAppCell, TodayAppFullScreenDescriptionCell, TodayAppFullScreenHeaderCell, TodayCell, TodayMutipleAppsCell |
-| [SearchResultCell.swift](https://github.com/GeorgeSolorio/appStoreClone/blob/master/appStoreClone/Views/SearchResultCell.swift) | The main cell view that display app information with an image, get button and description |
+| [SearchResultCell.swift](https://github.com/GeorgeSolorio/appStoreClone/blob/master/appStoreClone/Views/SearchResultCell.swift) | The main cell view that display app information with an image, get button and description | SearchResultCell |
 
 ## Controller 🕹
 You can find the controller classes in the [Controller](https://github.com/GeorgeSolorio/appStoreClone/tree/master/appStoreClone/Controller) folder
