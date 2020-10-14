@@ -1,4 +1,4 @@
-# appStoreClone 
+# The App Store Clone 
 
 ## About
 A case study based on [Brian Voong's](https://www.youtube.com/channel/UCuP2vJ6kRutQBfRmdcI92mA) tutorials on iOS. The app attempts to mock Apple's App Store behavior. 
@@ -7,31 +7,30 @@ These behaviors consist of fetching iTunes data, displaying multiple tab control
 The project follows the MVC architecture along with an API service class. 
 The entire app contains four different tab controllers that demonstrate data representation in different ways
 
-* **Music tab** consist of a lists with songs from Taylor Swift
+* **Music tab** Displays a list of Taylor Swift's songs
 
-* **Today tab** consists of todays' highly rated apps.
+* **Today tab** Contains four main cells, two of them animate a zoom in transition, while the other two transition to a complete list of apps
 
-* **Apps tab** containing scrolls views that demonstrate a list of *editor's choice*, *top free iphone apps* and *top grossing apps*.
+* **Apps tab** Contains sections of *editor's choice*, *top free iphone apps* and *top grossing apps*. Each section has the ability to scroll and demonstate cells with the app's information and pop up interaction. 
 
-* **Search tab** allows the user to search any app they want by typing the name on the search bar.
+* **Search tab** Allows the user to search any app by typing the name on the search bar. This will then display a list of apps matching the given name
 
-Each tab has it's own Model, View and Controller. The view's were also manually coded in order to gain better access of its size and display.
+Each tab has it's own Model, View and Controller. The view's were also manually coded in order to gain better controll of its size and display.
 
 ## Learning Objectives
-* How to set up User interface
+* How to set up the user interface manually
+* Setup navigation views and tab controllers
 * Setup Decodable objects based on Itunes API
 * Fetch Itunes data and convert JSON data into Swift decodable obejects
 * Synchronize multiple fetches
-* Snap collection view layouts scrolling
+* Snap collection view layouts when scrolling
 * Handle user interaction with animated feedback
-* Manually setup auto layout contraints
-* Setup navigation views and tab controllers
 
 ## Usage
 You can run this project in Xcode and simulate the app on any desired Iphone simulator.
 
 Welcome to the App store clone! This app contains many similar features you'd find in Apple's original app store. When you launch this app, you'll be
-greated with four different screens
+greeted with a tab bar that contains four different options.
 
 | Music                                |  Today's highlight                           | Top of the list apps                 | Search the store                  |
 :-------------------------------------:|:-------------------------------------------: |:------------------------------------:|:---------------------------------:|
@@ -43,31 +42,32 @@ All model objects are located in the [models](https://github.com/GeorgeSolorio/a
 
 | File                   | Description                                    | Obejcts                                  |
 | -----------------------|:-----------------------------------------------|:-----------------------------------------|
-| AppGroup.swift         | The root of three major feed objects           | AppGroup, Feed, FeedResult               |
-| CustomerReviews.swift  | A set objects used for reviews                 | Reviews, ReviewFeed, Entry, Author, Label|
-| SearchResult.swift     | A set of search result keys                    | SearchResult, Result                     |
-| SocialApp.swift        | Holds keys for the app image information       | SocialApp                                |
-| todayItem.swift        | Holds information about the app's detailed data| TodayItem                                |
+| [AppGroup.swift](https://github.com/GeorgeSolorio/appStoreClone/blob/master/appStoreClone/Model/AppGroup.swift)         | The root of three major feed objects           | AppGroup, Feed, FeedResult               |
+| [CustomerReviews.swift](https://github.com/GeorgeSolorio/appStoreClone/blob/master/appStoreClone/Model/CustomerReviews.swift)  | A set objects used for reviews                 | Reviews, ReviewFeed, Entry, Author, Label|
+| [SearchResult.swift](https://github.com/GeorgeSolorio/appStoreClone/blob/master/appStoreClone/Model/SearchResult.swift)     | A set of search result keys                    | SearchResult, Result                     |
+| [SocialApp.swift](https://github.com/GeorgeSolorio/appStoreClone/blob/master/appStoreClone/Model/SocialApp.swift)        | Holds keys for the app image information       | SocialApp                                |
+| [todayItem.swift](https://github.com/GeorgeSolorio/appStoreClone/blob/master/appStoreClone/Model/TodayItem.swift)        | Holds information about the app's detailed data| TodayItem                                |
 
 Each model is used for mapping JSON data into Swift decodable structs from the Itunes API
 
 ## Views 🖼
-You can find the View classes in the [Views](https://github.com/GeorgeSolorio/appStoreClone/tree/master/appStoreClone/Views) folder
+You can find the View folders in the [Views](https://github.com/GeorgeSolorio/appStoreClone/tree/master/appStoreClone/Views) folder
 
-| Folder                   | Description                                                                | Objects                               |
+| Views                  | Description                                                                | Objects                               |
 | -----------------------|:-----------------------------------------------------------------------------|:-----------------------------------------|
-| Apps                   | This folder consits of files that help display details about the fetched app | AppRowCell, AppHeaderCell, AppDetailCell, PreviewCell,  ReviewInfoCell, ReviewRowCell |
-| Music                  | This folder helps display infomation about a given track                     | TrackCell, MusicLoadingFooter          |
-| Today                  | This folder consits of files that help display information on the Today Tab  | TodayAppFullScreenHeaderCell, BaseTodayCell, MultipleAppCell, TodayAppFullScreenDescriptionCell, TodayAppFullScreenHeaderCell, TodayCell, TodayMutipleAppsCell |
+| [Apps](https://github.com/GeorgeSolorio/appStoreClone/tree/master/appStoreClone/Views/Apps)                   | This folder consits of files that help display details about the fetched app | AppRowCell, AppHeaderCell, AppDetailCell, PreviewCell,  ReviewInfoCell, ReviewRowCell |
+| [Music](https://github.com/GeorgeSolorio/appStoreClone/tree/master/appStoreClone/Views/Music)                 | This folder helps display infomation about a given track                     | TrackCell, MusicLoadingFooter          |
+| [Today](https://github.com/GeorgeSolorio/appStoreClone/tree/master/appStoreClone/Views/Today)                  | This folder consits of files that help display information on the Today Tab  | TodayAppFullScreenHeaderCell, BaseTodayCell, MultipleAppCell, TodayAppFullScreenDescriptionCell, TodayAppFullScreenHeaderCell, TodayCell, TodayMutipleAppsCell |
+| [SearchResultCell.swift](https://github.com/GeorgeSolorio/appStoreClone/blob/master/appStoreClone/Views/SearchResultCell.swift) | The main cell view that display app information with an image, get button and description |
 
 ## Controller 🕹
 You can find the controller classes in the [Controller](https://github.com/GeorgeSolorio/appStoreClone/tree/master/appStoreClone/Controller) folder
 | Controllers              | Description                                    |
 | -------------------------|:-----------------------------------------------|
-| App                      | This folder helps initialize and display the app's tab view. Using tools from SwiftUI for its collection view and displaying details about apps in the scroll view|
-| Today                    | This folder consits of code that helps display four main cells. Each cell displays information, provides user interaction and creates feedback by zooming in and out of a cell in an animated way |
-| Base                   | A set of base controllers consisting of common behaviours found in many of our views. These objects allow us to speed up the process initializing controllers such as the TabBarController, BaseListController and HorizontalSnappingController |
-| Search                 | This folder consists of a single file that makes use of Apple's UISearchController, allowing us to fetch user input |
+| [App](https://github.com/GeorgeSolorio/appStoreClone/tree/master/appStoreClone/Controller/Apps)                      | This folder helps initialize and display the app's tab view. Using tools from SwiftUI for its collection view and displaying details about apps in the scroll view|
+| [Today](https://github.com/GeorgeSolorio/appStoreClone/tree/master/appStoreClone/Controller/Today)                    | This folder consits of code that helps display four main cells. Each cell displays information, provides user interaction and creates feedback by zooming in and out of a cell in an animated way |
+| [Base](https://github.com/GeorgeSolorio/appStoreClone/tree/master/appStoreClone/Controller)                   | A set of base controllers consisting of common behaviours found in many of our views. These objects allow us to speed up the process initializing controllers such as the TabBarController, BaseListController and HorizontalSnappingController |
+| [Search](https://github.com/GeorgeSolorio/appStoreClone/tree/master/appStoreClone/Controller/Search)  | This folder consists of a single file that makes use of Apple's UISearchController, allowing us to fetch user input |
 
 
 ## Service 📥
