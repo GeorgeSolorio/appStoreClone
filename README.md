@@ -74,7 +74,7 @@ You can find the controller classes in the [Controller](https://github.com/Georg
 You can find the Service class in the [Service](https://github.com/GeorgeSolorio/appStoreClone/tree/master/appStoreClone/Service) folder
 | File                  | Description                                                                | Objects                               |
 | ----------------------|:---------------------------------------------------------------------------|:--------------------------------------|
-| [APIService.swift](https://github.com/GeorgeSolorio/appStoreClone/blob/master/appStoreClone/Service/APIService.swift)  | A file containing a set of methods that fetch data from a given url and Decode it into our local models | Service |
+| [APIService.swift](https://github.com/GeorgeSolorio/appStoreClone/blob/master/appStoreClone/Service/APIService.swift)  | A file containing a set of methods that fetch data from a given url and decode it into our local models | Service |
 
 ## Third party services: SDWebImage 
 We used [SDWebImage](https://github.com/SDWebImage/SDWebImage) to help us display fetched images in a simpler and intuitive way 
