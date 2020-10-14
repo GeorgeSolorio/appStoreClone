@@ -40,7 +40,7 @@ All model objects are located in the [models](https://github.com/GeorgeSolorio/a
 | CustomerReviews.swift  | A set objects used for reviews                 | Reviews, ReviewFeed, Entry, Author, Label|
 | SearchResult.swift     | A set of search result keys                    | SearchResult, Result                     |
 | SocialApp.swift        | Holds keys for the app image information       | SocialApp                                |
-| todayItem.swift        | Holds infomations about the apps detailed data | TodayItem                                |
+| todayItem.swift        | Holds information about the app's detailed data| TodayItem                                |
 
 Each model is used for mapping JSON data into Swift decodable structs from the Itunes API
 
